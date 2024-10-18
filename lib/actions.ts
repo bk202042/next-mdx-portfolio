@@ -9,6 +9,11 @@ type ContactFormInputs = z.infer<typeof ContactFormSchema>
 type NewsletterFormInputs = z.infer<typeof NewsletterFormSchema>
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+// If you want to add a check to ensure the API key is present, you can do:
+if (!process.env.RESEND_API_KEY) {
+  throw new Error('Missing RESEND_API_KEY environment variable')
+}
+
 export async function sendEmail(data: ContactFormInputs) {
   const result = ContactFormSchema.safeParse(data)
 
@@ -19,9 +24,9 @@ export async function sendEmail(data: ContactFormInputs) {
   try {
     const { name, email, message } = result.data
     const { data, error } = await resend.emails.send({
-      from: 'hello@hamedbahram.io',
+      from: 'admin@bkmind.com',
       to: [email],
-      cc: ['hello@hamedbahram.io'],
+      cc: ['admin@bkmind.com'],
       subject: 'Contact form submission',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       react: ContactFormEmail({ name, email, message })
