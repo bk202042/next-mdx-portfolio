@@ -1,13 +1,15 @@
-import ContactForm from '@/components/contact-form'
+import ContactForm from '@/components/contact-form';
+import { useTranslations } from 'next-intl';
 
 export default function Contact() {
+  const t = useTranslations('ContactForm');
+
   return (
     <section className='pb-24 pt-40'>
       <div className='container max-w-3xl'>
-        <h2 className='title'>Let&apos;s talk about your project</h2>
-
+        <h2 className='title'>{t('title')}</h2>
         <ContactForm />
       </div>
     </section>
-  )
+  );
 }

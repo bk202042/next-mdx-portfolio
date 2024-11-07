@@ -10,10 +10,13 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { sendEmail } from '@/lib/actions'
+import { useTranslations } from 'next-intl'
 
 type Inputs = z.infer<typeof ContactFormSchema>
 
 export default function ContactForm() {
+  const t = useTranslations('ContactForm')
+
   const {
     register,
     handleSubmit,
@@ -90,13 +93,13 @@ export default function ContactForm() {
               <Input
                 id='name'
                 type='text'
-                placeholder='Name'
-                autoComplete='given-name'
+                placeholder={t('name')}
+                className='ko-text'
                 {...register('name')}
               />
 
               {errors.name?.message && (
-                <p className='ml-1 mt-2 text-sm text-rose-400'>
+                <p className='ko-text ml-1 mt-2 text-rose-400'>
                   {errors.name.message}
                 </p>
               )}
@@ -108,12 +111,12 @@ export default function ContactForm() {
                 type='email'
                 id='email'
                 autoComplete='email'
-                placeholder='Email'
+                placeholder={t('email')}
                 {...register('email')}
               />
 
               {errors.email?.message && (
-                <p className='ml-1 mt-2 text-sm text-rose-400'>
+                <p className='meta-text ml-1 mt-2 text-rose-400'>
                   {errors.email.message}
                 </p>
               )}
@@ -123,12 +126,12 @@ export default function ContactForm() {
             <div className='sm:col-span-2'>
               <Textarea
                 rows={4}
-                placeholder='Message'
+                placeholder={t('message')}
                 {...register('message')}
               />
 
               {errors.message?.message && (
-                <p className='ml-1 mt-2 text-sm text-rose-400'>
+                <p className='meta-text ml-1 mt-2 text-rose-400'>
                   {errors.message.message}
                 </p>
               )}
@@ -138,12 +141,12 @@ export default function ContactForm() {
             <Button
               type='submit'
               disabled={isSubmitting}
-              className='w-full disabled:opacity-50'
+              className='w-full disabled:opacity-50 ko-text'
             >
-              {isSubmitting ? 'Submitting...' : 'Contact Us'}
+              {t('submit')}
             </Button>
           </div>
-          <p className='mt-4 text-xs text-muted-foreground'>
+          <p className='ko-text mt-4 text-muted-foreground'>
             By submitting this form, I agree to the{' '}
             <Link href='/privacy' className='font-bold'>
               privacy&nbsp;policy.

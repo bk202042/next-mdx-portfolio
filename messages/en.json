@@ -1,0 +1,24 @@
+{
+  "HomePage": {
+    "title": "Hi, I'm BK",
+    "intro":"Welcome to my digital nook.I'm a software engineer specializing in developing IT service products using cutting-edge AI technologies. I'm passionate about learning new technologies and sharing knowledge with others."
+  },
+  "Header": {
+    "posts": "Posts",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "Footer": {
+    "rights": "All rights reserved."
+  },
+  "ContactForm": {
+    "title": "Let's talk about your project",
+    "subtitle": "We help companies and individuals build out their digital presence.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Contact Us",
+    "privacyPolicy": "privacy policy"
+  }
+
+}

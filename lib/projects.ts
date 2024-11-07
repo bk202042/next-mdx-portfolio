@@ -1,58 +1,47 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { cookies } from 'next/headers';
 
-const rootDirectory = path.join(process.cwd(), 'content', 'projects')
-
-export type Project = {
-  metadata: ProjectMetadata
-  content: string
-}
+const rootDirectory = (locale: string) =>
+  path.join(process.cwd(), 'content', 'projects', locale);
 
 export type ProjectMetadata = {
-  title?: string
-  summary?: string
-  image?: string
-  author?: string
-  publishedAt?: string
-  slug: string
-}
+  title?: string;
+  description?: string;
+  image?: string;
+  publishedAt?: string;
+  slug: string;
+};
 
-export async function getProjectBySlug(slug: string): Promise<Project | null> {
+export async function getProjectMetadata(filepath: string): Promise<ProjectMetadata> {
   try {
-    const filePath = path.join(rootDirectory, `${slug}.mdx`)
-    const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
-    const { data, content } = matter(fileContent)
-    return { metadata: { ...data, slug }, content }
+    const cookieStore = await cookies();
+    const locale = cookieStore.get('locale')?.value || 'en';
+    const slug = filepath.replace(/\.mdx$/, '');
+    const filePath = path.join(rootDirectory(locale), filepath);
+    const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
+    const { data } = matter(fileContent);
+    return {
+      ...data,
+      slug,
+      title: locale === 'ko' ? `<span class="ko-text">${data.title}</span>` : data.title,
+      description: locale === 'ko' ? `<span class="ko-text">${data.description}</span>` : data.description,
+    };
   } catch (error) {
-    return null
+    console.error('Error reading project metadata:', error);
+    return { slug: filepath.replace(/\.mdx$/, '') };
   }
 }
 
-export async function getProjects(limit?: number): Promise<ProjectMetadata[]> {
-  const files = fs.readdirSync(rootDirectory)
+export async function getProjects(): Promise<ProjectMetadata[]> {
+  const cookieStore = cookies();
+  const locale = (await cookieStore).get('locale')?.value ?? 'ko';
+  const files = fs.readdirSync(rootDirectory(locale));
 
   const projects = files
-    .map(file => getProjectMetadata(file))
-    .sort((a, b) => {
-      if (new Date(a.publishedAt ?? '') < new Date(b.publishedAt ?? '')) {
-        return 1
-      } else {
-        return -1
-      }
-    })
+    .filter(file => file.endsWith('.mdx'))
+    .map(file => getProjectMetadata(file));
 
-  if (limit) {
-    return projects.slice(0, limit)
-  }
-
-  return projects
-}
-
-export function getProjectMetadata(filepath: string): ProjectMetadata {
-  const slug = filepath.replace(/\.mdx$/, '')
-  const filePath = path.join(rootDirectory, filepath)
-  const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
-  const { data } = matter(fileContent)
-  return { ...data, slug }
+  return Promise.all(projects);
 }
