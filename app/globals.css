@@ -90,7 +90,7 @@
 
   /* Section titles */
   .subtitle {
-    @apply text-customSubtitle font-sans text-xl font-medium leading-6 tracking-tight antialiased sm:text-2xl;
+    @apply font-sans text-lg leading-8 text-zinc-400 dark:text-zinc-500;
   }
 
   /* Regular body text */
