@@ -10,3 +10,91 @@
 
 # 2024-11-16 10:43:18.816425
 +Y
+
+# 2024-11-16 10:59:45.427340
++/add /components
+
+# 2024-11-16 10:59:51.218396
++N
+
+# 2024-11-16 11:00:26.620462
++/add components/ui/*
+
+# 2024-11-16 11:00:54.243174
++/exit
+
+# 2024-11-16 11:01:46.393602
++/architect I want to exchange the hamed.png to bk.png
+
+# 2024-11-16 11:01:50.653703
++Y
+
+# 2024-11-16 11:03:18.641894
++N
+
+# 2024-11-16 11:03:37.265237
++/add components/intro.tsx
+
+# 2024-11-16 11:03:55.365924
++exchange hamed.png to bk.png
+
+# 2024-11-16 11:04:10.947055
++Y
+
+# 2024-11-16 11:04:10.954852
++/run rm public/images/authors/hamed.png
+
+# 2024-11-16 11:04:23.562894
++/exit
+
+# 2024-11-16 11:08:05.358526
++/add components/intro.tsx
+
+# 2024-11-16 11:08:26.277265
++fix error. import authorImage from '@/public/images/authors/'bk.png';
+
+# 2024-11-17 08:13:21.051512
++/map 
+
+# 2024-11-17 08:15:09.146619
++/ask I want to add subtitle to contact page both korean and english. 
+
+# 2024-11-17 08:15:55.392543
++N
+
+# 2024-11-17 08:24:35.183982
++/web https://www.hamedbahram.io/contact
+
+# 2024-11-17 08:25:28.991526
++/ask I want to add the subtilte like the webpage that I gave to you
+
+# 2024-11-17 08:25:57.936323
++Y
+
+# 2024-11-17 08:28:16.330038
++ok do it for me
+
+# 2024-11-17 09:36:54.406638
++/ask I am using mdx remote for this nexjs portfolio website. I wonder do I have to Update your next.config.mjs to include MDX support? 
+
+# 2024-11-17 09:36:57.733642
++Y
+
+# 2024-11-17 09:38:59.669047
++/exit
+
+# 2024-11-17 10:20:46.883594
++/add app/contact/page.tsx app/globals.css
+
+# 2024-11-17 10:20:58.748574
++add/ tailwind.config.ts
+
+# 2024-11-17 10:21:03.721872
++Y
+
+# 2024-11-17 10:21:43.705684
++make the subtitle both korean and english to this: rgb(161, 161, 170)
++<p class="mt-2 text-lg leading-8 text-zinc-400 dark:text-zinc-500">
+
+# 2024-11-17 10:24:33.009737
++/exit

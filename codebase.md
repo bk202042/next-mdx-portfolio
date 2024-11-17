@@ -1,12 +1,4 @@
-# .aidigestignore
 
-```
-.node_modules
-.git
-.env
-node_modules
-
-```
 
 # .eslintrc.json
 
@@ -14,52 +6,6 @@ node_modules
 {
   "extends": "next/core-web-vitals"
 }
-
-```
-
-# .gitignore
-
-```
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# local env files
-.env*.local
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-#codebase
-codebase
-aidigestignore
 
 ```
 
@@ -83,23 +29,45 @@ aidigestignore
 # app/contact/page.tsx
 
 ```tsx
-import ContactForm from '@/components/contact-form'
+import ContactForm from '@/components/contact-form';
+import { useTranslations } from 'next-intl';
 
 export default function Contact() {
+  const t = useTranslations('ContactForm');
+
   return (
     <section className='pb-24 pt-40'>
       <div className='container max-w-3xl'>
-        <h2 className='title'>Let&apos;s talk about your project</h2>
-
+        <h2 className='title'>{t('title')}</h2>
         <ContactForm />
       </div>
     </section>
-  )
+  );
 }
 
 ```
 
 # app/favicon.ico
+
+This is a binary file of the type: Binary
+
+# app/fonts/SpoqaHanSansNeo-Bold.otf
+
+This is a binary file of the type: Binary
+
+# app/fonts/SpoqaHanSansNeo-Light.otf
+
+This is a binary file of the type: Binary
+
+# app/fonts/SpoqaHanSansNeo-Medium.otf
+
+This is a binary file of the type: Binary
+
+# app/fonts/SpoqaHanSansNeo-Regular.otf
+
+This is a binary file of the type: Binary
+
+# app/fonts/SpoqaHanSansNeo-Thin.otf
 
 This is a binary file of the type: Binary
 
@@ -180,18 +148,44 @@ This is a binary file of the type: Binary
     --sh-keyword: #f47067;
     --sh-string: #0fa295;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
 
+@layer components {
+  /* Main title */
   .title {
-    @apply font-serif text-3xl font-bold underline decoration-border/75 decoration-2 underline-offset-8;
+    @apply font-sans text-3xl font-bold;
+  }
+
+  /* Section titles */
+  .subtitle {
+    @apply font-sans text-xl font-medium tracking-tight sm:text-2xl;
+  }
+
+  /* Regular body text */
+  .body-text {
+    @apply font-sans text-base font-light text-muted-foreground;
+  }
+
+  /* Smaller text (dates, metadata) */
+  .meta-text {
+    @apply font-sans text-sm font-light text-muted-foreground;
+  }
+
+  /* Navigation/menu text */
+  .menu-text {
+    @apply font-sans text-sm font-medium text-muted-foreground transition-colors hover:text-foreground;
+  }
+
+  .prose {
+    @apply text-foreground;
   }
 
   .prose pre {
@@ -204,11 +198,27 @@ This is a binary file of the type: Binary
 
   .prose pre code {
     @apply p-0;
-    line-height: 1.75;
   }
 
   .prose code span {
     @apply font-medium;
+  }
+
+  /* Korean text specific classes */
+  .ko-text {
+    @apply font-sans; /* This will use Spoqa Han Sans Neo */
+  }
+
+  .ko-title {
+    @apply font-sans text-3xl font-bold;
+  }
+
+  .ko-subtitle {
+    @apply font-sans text-xl font-medium text-muted-foreground;
+  }
+
+  .ko-body {
+    @apply font-sans text-base text-muted-foreground;
   }
 }
 
@@ -219,6 +229,7 @@ This is a binary file of the type: Binary
 ```tsx
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
+import localFont from 'next/font/local'
 
 import { cn } from '@/lib/utils';
 
@@ -230,19 +241,52 @@ import Footer from '@/components/footer';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+  preload: true,
+});
+
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-serif',
+  display: 'swap',
+  preload: true,
 });
+
+const spoqa = localFont({
+  src: [
+    {
+      path: './fonts/SpoqaHanSansNeo-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/SpoqaHanSansNeo-Medium.otf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/SpoqaHanSansNeo-Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-spoqa',
+  display: 'swap',
+  preload: true,
+})
 
 export const metadata: Metadata = {
   title: 'Your Site Title',
   description: 'Your site description',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
@@ -250,21 +294,27 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body
-        className={cn(
-          'flex min-h-screen flex-col font-sans antialiased overflow-y-scroll',
-          inter.variable,
-          playfair.variable
-        )}
-      >
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Providers>
+    <html
+      lang={locale}
+      className={cn(
+        inter.variable,
+        playfair.variable,
+        spoqa.variable,
+        'font-sans'
+      )}
+      suppressHydrationWarning
+    >
+      <head>
+        <meta name="color-scheme" content="light dark" />
+      </head>
+      <body suppressHydrationWarning>
+        <Providers>
+          <NextIntlClientProvider messages={messages}>
             <Header />
-            <main className='grow'>{children}</main>
+            <main>{children}</main>
             <Footer />
-          </Providers>
-        </NextIntlClientProvider>
+          </NextIntlClientProvider>
+        </Providers>
       </body>
     </html>
   );
@@ -571,10 +621,13 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { sendEmail } from '@/lib/actions'
+import { useTranslations } from 'next-intl'
 
 type Inputs = z.infer<typeof ContactFormSchema>
 
 export default function ContactForm() {
+  const t = useTranslations('ContactForm')
+
   const {
     register,
     handleSubmit,
@@ -651,13 +704,13 @@ export default function ContactForm() {
               <Input
                 id='name'
                 type='text'
-                placeholder='Name'
-                autoComplete='given-name'
+                placeholder={t('name')}
+                className='ko-text'
                 {...register('name')}
               />
 
               {errors.name?.message && (
-                <p className='ml-1 mt-2 text-sm text-rose-400'>
+                <p className='ko-text ml-1 mt-2 text-rose-400'>
                   {errors.name.message}
                 </p>
               )}
@@ -669,12 +722,12 @@ export default function ContactForm() {
                 type='email'
                 id='email'
                 autoComplete='email'
-                placeholder='Email'
+                placeholder={t('email')}
                 {...register('email')}
               />
 
               {errors.email?.message && (
-                <p className='ml-1 mt-2 text-sm text-rose-400'>
+                <p className='meta-text ml-1 mt-2 text-rose-400'>
                   {errors.email.message}
                 </p>
               )}
@@ -684,12 +737,12 @@ export default function ContactForm() {
             <div className='sm:col-span-2'>
               <Textarea
                 rows={4}
-                placeholder='Message'
+                placeholder={t('message')}
                 {...register('message')}
               />
 
               {errors.message?.message && (
-                <p className='ml-1 mt-2 text-sm text-rose-400'>
+                <p className='meta-text ml-1 mt-2 text-rose-400'>
                   {errors.message.message}
                 </p>
               )}
@@ -699,12 +752,12 @@ export default function ContactForm() {
             <Button
               type='submit'
               disabled={isSubmitting}
-              className='w-full disabled:opacity-50'
+              className='w-full disabled:opacity-50 ko-text'
             >
-              {isSubmitting ? 'Submitting...' : 'Contact Us'}
+              {t('submit')}
             </Button>
           </div>
-          <p className='mt-4 text-xs text-muted-foreground'>
+          <p className='ko-text mt-4 text-muted-foreground'>
             By submitting this form, I agree to the{' '}
             <Link href='/privacy' className='font-bold'>
               privacy&nbsp;policy.
@@ -883,13 +936,13 @@ export default function Header() {
 
         <ul className='flex items-center gap-6 text-sm font-light text-muted-foreground sm:gap-10'>
           <li className='transition-colors hover:text-foreground'>
-            <Link href='/posts'>{t('posts')}</Link>
+            <Link href='/posts' className='font-spoqa'>{t('posts')}</Link>
           </li>
           <li className='transition-colors hover:text-foreground'>
-            <Link href='/projects'>{t('projects')}</Link>
+            <Link href='/projects' className='font-spoqa'>{t('projects')}</Link>
           </li>
           <li className='transition-colors hover:text-foreground'>
-            <Link href='/contact'>{t('contact')}</Link>
+            <Link href='/contact' className='font-spoqa'>{t('contact')}</Link>
           </li>
         </ul>
 
@@ -908,7 +961,7 @@ export default function Header() {
 
 ```tsx
 import Image from 'next/image';
-import authorImage from '@/public/images/authors/hamed.png';
+import authorImage from '@/public/images/authors/bk.png';
 import { useTranslations } from 'next-intl';
 
 export default function Intro() {
@@ -917,10 +970,8 @@ export default function Intro() {
   return (
     <section className='flex flex-col-reverse items-start gap-x-10 gap-y-4 pb-24 md:flex-row md:items-center'>
       <div className='mt-2 flex-1 md:mt-0'>
-        <h1 className='title no-underline'>{t('title')}</h1>
-        <p className='mt-3 font-light text-muted-foreground'>
-          {t('intro')}
-        </p>
+        <h1 className='ko-title'>{t('title')}</h1>
+        <p className='ko-body mt-3'>{t('intro')}</p>
       </div>
       <div className='relative'>
         <Image
@@ -944,7 +995,6 @@ export default function Intro() {
 'use client';
 
 import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
 import {
   Select,
   SelectContent,
@@ -955,23 +1005,20 @@ import {
 
 export default function LocaleSwitcher() {
   const locale = useLocale();
-  const router = useRouter();
 
-  const handleLocaleChange = async (newLocale: string) => {
-    // Set cookie
-    document.cookie = `locale=${newLocale};path=/;max-age=31536000`; // 1년 유효기간 설정
-    // Refresh the page to apply new locale
-    router.refresh();
+  const onSelectChange = (newLocale: string) => {
+    document.cookie = `locale=${newLocale};path=/;max-age=31536000`;
+    window.location.reload();
   };
 
   return (
-    <Select defaultValue={locale} onValueChange={handleLocaleChange}>
-      <SelectTrigger className="w-[80px]">
+    <Select defaultValue={locale} onValueChange={onSelectChange}>
+      <SelectTrigger className="w-[70px]">
         <SelectValue placeholder={locale.toUpperCase()} />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="en">EN</SelectItem>
         <SelectItem value="ko">KO</SelectItem>
+        <SelectItem value="en">EN</SelectItem>
       </SelectContent>
     </Select>
   );
@@ -1172,11 +1219,14 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
 
 ```tsx
 import Link from 'next/link'
+import { useLocale } from 'next-intl'
 
 import { PostMetadata } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
 
 export default function Posts({ posts }: { posts: PostMetadata[] }) {
+  const locale = useLocale()
+
   return (
     <ul className='flex flex-col gap-8'>
       {posts.map(post => (
@@ -1186,16 +1236,12 @@ export default function Posts({ posts }: { posts: PostMetadata[] }) {
             className='flex flex-col justify-between gap-x-4 gap-y-1 sm:flex-row'
           >
             <div className='max-w-lg'>
-              <p className='text-lg font-semibold'>{post.title}</p>
-              <p className='mt-1 line-clamp-2 text-sm font-light text-muted-foreground'>
-                {post.summary}
-              </p>
+              <p className='subtitle'>{post.title}</p>
+              <p className='body-text mt-1 line-clamp-2'>{post.summary}</p>
             </div>
 
             {post.publishedAt && (
-              <p className='mt-1 text-sm font-light'>
-                {formatDate(post.publishedAt)}
-              </p>
+              <p className='meta-text mt-1'>{formatDate(post.publishedAt, locale)}</p>
             )}
           </Link>
         </li>
@@ -2180,6 +2226,19 @@ maintain and update.
 
 ```
 
+# content/projects/en/sample-project.mdx
+
+```mdx
+---
+title: Sample Project
+description: This is a sample project
+publishedAt: '2024-03-20'
+---
+
+Project content goes here...
+
+```
+
 # content/projects/ko/ecommerce-store.mdx
 
 ```mdx
@@ -2304,6 +2363,19 @@ maintain and update.
 
 ```
 
+# content/projects/ko/sample-project.mdx
+
+```mdx
+---
+title: 샘플 프로젝트
+description: 이것은 샘플 프로젝트입니다
+publishedAt: '2024-03-20'
+---
+
+프로젝트 내용이 여기에 들어갑니다...
+
+```
+
 # emails/contact-form-email.tsx
 
 ```tsx
@@ -2345,19 +2417,25 @@ export const defaultLocale: Locale = "ko";
 # i18n/request.ts
 
 ```ts
-import {getRequestConfig} from 'next-intl/server';
-import {cookies} from 'next/headers';
+import { getRequestConfig } from 'next-intl/server';
+import { cookies } from 'next/headers';
 
 export default getRequestConfig(async () => {
-  // Get the cookies instance - cookies() is now async in Next.js 15
-  const cookieStore = await cookies();
-  const localeCookie = cookieStore.get('locale');
-  const locale = localeCookie?.value || 'en'; // Default to 'en'
+  const cookieStore = cookies();
+  const locale = (await cookieStore).get('locale')?.value ?? 'ko';
 
-  return {
-    locale,
-    messages: (await import(`@/messages/${locale}.json`)).default
-  };
+  try {
+    return {
+      locale,
+      messages: (await import(`@/messages/${locale}.json`)).default
+    };
+  } catch (error) {
+    console.error('Error loading messages:', error);
+    return {
+      locale: 'ko',
+      messages: (await import(`@/messages/ko.json`)).default
+    };
+  }
 });
 
 ```
@@ -2476,8 +2554,8 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 }
 
 export async function getPosts(limit?: number): Promise<PostMetadata[]> {
-  const cookieStore = await cookies();
-  const locale = cookieStore.get('locale')?.value || 'en';
+  const cookieStore = cookies();
+  const locale = (await cookieStore).get('locale')?.value ?? 'ko';
   const files = fs.readdirSync(rootDirectory(locale));
 
   const posts = files
@@ -2485,9 +2563,8 @@ export async function getPosts(limit?: number): Promise<PostMetadata[]> {
     .sort((a, b) => {
       if (new Date(a.publishedAt ?? '') < new Date(b.publishedAt ?? '')) {
         return 1;
-      } else {
-        return -1;
       }
+      return -1;
     });
 
   if (limit) {
@@ -2510,63 +2587,52 @@ export function getPostMetadata(filepath: string, locale: string): PostMetadata 
 # lib/projects.ts
 
 ```ts
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { cookies } from 'next/headers';
 
-const rootDirectory = path.join(process.cwd(), 'content', 'projects')
-
-export type Project = {
-  metadata: ProjectMetadata
-  content: string
-}
+const rootDirectory = (locale: string) =>
+  path.join(process.cwd(), 'content', 'projects', locale);
 
 export type ProjectMetadata = {
-  title?: string
-  summary?: string
-  image?: string
-  author?: string
-  publishedAt?: string
-  slug: string
-}
+  title?: string;
+  description?: string;
+  image?: string;
+  publishedAt?: string;
+  slug: string;
+};
 
-export async function getProjectBySlug(slug: string): Promise<Project | null> {
+export async function getProjectMetadata(filepath: string): Promise<ProjectMetadata> {
   try {
-    const filePath = path.join(rootDirectory, `${slug}.mdx`)
-    const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
-    const { data, content } = matter(fileContent)
-    return { metadata: { ...data, slug }, content }
+    const cookieStore = await cookies();
+    const locale = cookieStore.get('locale')?.value || 'en';
+    const slug = filepath.replace(/\.mdx$/, '');
+    const filePath = path.join(rootDirectory(locale), filepath);
+    const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
+    const { data } = matter(fileContent);
+    return {
+      ...data,
+      slug,
+      title: locale === 'ko' ? `<span class="ko-text">${data.title}</span>` : data.title,
+      description: locale === 'ko' ? `<span class="ko-text">${data.description}</span>` : data.description,
+    };
   } catch (error) {
-    return null
+    console.error('Error reading project metadata:', error);
+    return { slug: filepath.replace(/\.mdx$/, '') };
   }
 }
 
-export async function getProjects(limit?: number): Promise<ProjectMetadata[]> {
-  const files = fs.readdirSync(rootDirectory)
+export async function getProjects(): Promise<ProjectMetadata[]> {
+  const cookieStore = cookies();
+  const locale = (await cookieStore).get('locale')?.value ?? 'ko';
+  const files = fs.readdirSync(rootDirectory(locale));
 
   const projects = files
-    .map(file => getProjectMetadata(file))
-    .sort((a, b) => {
-      if (new Date(a.publishedAt ?? '') < new Date(b.publishedAt ?? '')) {
-        return 1
-      } else {
-        return -1
-      }
-    })
+    .filter(file => file.endsWith('.mdx'))
+    .map(file => getProjectMetadata(file));
 
-  if (limit) {
-    return projects.slice(0, limit)
-  }
-
-  return projects
-}
-
-export function getProjectMetadata(filepath: string): ProjectMetadata {
-  const slug = filepath.replace(/\.mdx$/, '')
-  const filePath = path.join(rootDirectory, filepath)
-  const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
-  const { data } = matter(fileContent)
-  return { ...data, slug }
+  return Promise.all(projects);
 }
 
 ```
@@ -2620,8 +2686,8 @@ export function formatDate(date: string, locale: string) {
 ```json
 {
   "HomePage": {
-    "title": "Hey, I'm Hamed.",
-    "intro": "I'm a software engineer based in Toronto, Canada. I'm passionate about learning new technologies and sharing knowledge with others."
+    "title": "Hi, I'm BK",
+    "intro":"Welcome to my digital nook.I'm a software engineer specializing in developing IT service products using cutting-edge AI technologies. I'm passionate about learning new technologies and sharing knowledge with others."
   },
   "Header": {
     "posts": "Posts",
@@ -2633,6 +2699,7 @@ export function formatDate(date: string, locale: string) {
   },
   "ContactForm": {
     "title": "Let's talk about your project",
+    "subtitle": "We help companies and individuals build out their digital presence.",
     "name": "Name",
     "email": "Email",
     "message": "Message",
@@ -2650,7 +2717,7 @@ export function formatDate(date: string, locale: string) {
 {
     "HomePage": {
         "title": "안녕하세요, BK입니다.",
-        "intro": "최신 AI 기술을 활용하여 IT 서비스 제품을 개발하는 소프트웨어 엔지니어입니다. 새로운 기술을 배우고 다른 사람들과 지식을 공유하는 것에 열정을 가지고 있습니다.",
+        "intro": "저의 웹사이트에 오신것을 환영합니다. 저는 최신 AI 기술을 활용하여 IT 서비스 제품을 개발하는 소프트웨어 엔지니어입니다. 새로운 기술을 배우고 다른 사람들과 지식을 공유하는 것에 열정을 가지고 있습니다.",
         "subtitle": "AI 기술로 혁신적인 솔루션을 만듭니다"
     },
     "Header": {
@@ -2677,23 +2744,7 @@ export function formatDate(date: string, locale: string) {
         "consulting": "기술 컨설팅"
     }
 }
-```
 
-# middleware.ts
-
-```ts
-import createMiddleware from 'next-intl/middleware';
-import { locales, defaultLocale } from '@/i18n/config';
-
-export default createMiddleware({
-  locales: locales,
-  defaultLocale: defaultLocale,
-  localePrefix: 'as-needed'
-});
-
-export const config = {
-  matcher: ['/((?!api|_next|.*\\..*).*)']
-}; 
 ```
 
 # next-env.d.ts
@@ -2707,20 +2758,6 @@ export const config = {
 
 ```
 
-# next.config.js
-
-```js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  i18n: {
-    locales: ['en', 'ko'],
-    defaultLocale: 'en',
-  }
-}
-
-module.exports = nextConfig 
-```
-
 # next.config.mjs
 
 ```mjs
@@ -2729,13 +2766,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  i18n: {
-    locales: ['en', 'ko'],
-    defaultLocale: 'ko',
-    localeDetection: false
-  }
-};
+const nextConfig = {};
 
 export default withNextIntl(nextConfig);
 
@@ -2783,10 +2814,11 @@ export default withNextIntl(nextConfig);
     "@types/node": "^20",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "autoprefixer": "^10.0.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.2",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "postcss": "^8.0.0",
+    "tailwindcss": "^3.0.0",
     "typescript": "^5"
   },
   "pnpm": {
@@ -2799,47 +2831,32 @@ export default withNextIntl(nextConfig);
 
 ```
 
+# postcss.config.js
+
+```js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}
+
+```
+
 # postcss.config.mjs
 
 ```mjs
 /** @type {import('postcss-load-config').Config} */
 const config = {
   plugins: {
-    tailwindcss: {},
-  },
-};
+    'tailwindcss': {},
+    'autoprefixer': {},
+  }
+}
 
-export default config;
+export default config
 
 ```
-
-# public/images/authors/hamed.png
-
-This is a binary file of the type: Image
-
-# public/images/posts/introduction-to-mdx.webp
-
-This is a binary file of the type: Image
-
-# public/images/posts/introduction-to-nextjs.webp
-
-This is a binary file of the type: Image
-
-# public/images/projects/ecommerce-store.jpg
-
-This is a binary file of the type: Image
-
-# public/images/projects/next-mdx-portfolio.jpg
-
-This is a binary file of the type: Image
-
-# public/next.svg
-
-This is a file of the type: SVG Image
-
-# public/vercel.svg
-
-This is a file of the type: SVG Image
 
 # README.md
 
@@ -2886,30 +2903,29 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 # tailwind.config.ts
 
 ```ts
-const { fontFamily } = require('tailwindcss/defaultTheme')
 import type { Config } from 'tailwindcss'
+import { fontFamily } from 'tailwindcss/defaultTheme'
 
-const config = {
-  darkMode: ['class'],
+const config: Config = {
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}'
   ],
-  prefix: '',
   theme: {
     container: {
       center: true,
       padding: '2rem',
       screens: {
-        '2xl': '1400px'
-      }
+        '2xl': '1400px',
+      },
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
-        serif: ['var(--font-serif)', ...fontFamily.serif]
+        sans: ['var(--font-spoqa)', 'Spoqa Han Sans Neo', ...fontFamily.sans],
+        serif: ['var(--font-serif)', ...fontFamily.serif],
+        mono: ['var(--font-mono)', 'monospace'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -2946,29 +2962,13 @@ const config = {
           foreground: 'hsl(var(--card-foreground))'
         }
       },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)'
-      },
-      keyframes: {
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' }
-        },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' }
-        }
-      },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
-      }
     }
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')]
-} satisfies Config
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwindcss-animate')
+  ]
+}
 
 export default config
 

@@ -2,3 +2,12 @@
 .git
 .env
 node_modules
+.aider
+.aider.chat.history
+.aider.input.history
+public
+.gitignore
+.vscode
+.aider.tags.cashe.v3
+aider
+aider.chat.history.md
