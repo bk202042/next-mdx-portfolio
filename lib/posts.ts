@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { cookies } from 'next/headers';
+import { headers } from 'next/headers';
 
 const rootDirectory = (locale: string) =>
   path.join(process.cwd(), 'content', 'posts', locale);
@@ -20,10 +20,18 @@ export type PostMetadata = {
   slug: string;
 };
 
+function getLocale(): string {
+  try {
+    const headersList = headers();
+    return headersList.get('accept-language')?.split(',')[0].split('-')[0] ?? 'en';
+  } catch {
+    return 'en';
+  }
+}
+
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   try {
-    const cookieStore = await cookies();
-    const locale = cookieStore.get('locale')?.value || 'en';
+    const locale = getLocale();
     const filePath = path.join(rootDirectory(locale), `${slug}.mdx`);
     const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
     const { data, content } = matter(fileContent);
@@ -34,8 +42,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 }
 
 export async function getPosts(limit?: number): Promise<PostMetadata[]> {
-  const cookieStore = cookies();
-  const locale = (await cookieStore).get('locale')?.value ?? 'ko';
+  const locale = getLocale();
   const files = fs.readdirSync(rootDirectory(locale));
 
   const posts = files
