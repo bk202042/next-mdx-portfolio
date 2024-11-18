@@ -23,7 +23,8 @@ export type PostMetadata = {
 function getLocale(): string {
   try {
     const headersList = headers();
-    return headersList.get('accept-language')?.split(',')[0].split('-')[0] ?? 'en';
+    const acceptLanguage = headersList.get('accept-language');
+    return acceptLanguage?.split(',')[0].split('-')[0] ?? 'en';
   } catch {
     return 'en';
   }
