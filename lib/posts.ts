@@ -20,10 +20,10 @@ export type PostMetadata = {
   slug: string;
 };
 
-function getLocale(): string {
+async function getLocale(): Promise<string> {
   try {
     const headersList = headers();
-    const acceptLanguage = headersList.get('accept-language');
+    const acceptLanguage = (await headersList).get('accept-language');
     return acceptLanguage?.split(',')[0].split('-')[0] ?? 'en';
   } catch {
     return 'en';
@@ -32,7 +32,7 @@ function getLocale(): string {
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   try {
-    const locale = getLocale();
+    const locale = await getLocale();
     const filePath = path.join(rootDirectory(locale), `${slug}.mdx`);
     const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
     const { data, content } = matter(fileContent);
@@ -43,7 +43,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 }
 
 export async function getPosts(limit?: number): Promise<PostMetadata[]> {
-  const locale = getLocale();
+  const locale = await getLocale();
   const files = fs.readdirSync(rootDirectory(locale));
 
   const posts = files

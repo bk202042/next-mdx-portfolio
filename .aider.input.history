@@ -98,3 +98,30 @@
 
 # 2024-11-17 10:24:33.009737
 +/exit
+
+# 2024-11-18 09:45:45.545057
++/add lib/posts.ts
+
+# 2024-11-18 09:45:55.175828
++fix this error: 'Promise<ReadonlyHeaders>' 형식에 'get' 속성이 없습니다.
+
+# 2024-11-18 09:47:42.119651
++/undo
+
+# 2024-11-18 09:52:02.261873
++/ask I have this error. 'Promise<ReadonlyHeaders>' 형식에 'get' 속성이 없습니다.
+
+# 2024-11-18 09:52:58.080516
++/read-only 
+
+# 2024-11-18 09:53:22.743728
++/read-only lib/posts.ts
+
+# 2024-11-18 09:53:35.724765
++I have this error: 'Promise<ReadonlyHeaders>' 형식에 'get' 속성이 없습니다.
+
+# 2024-11-18 09:54:28.073002
++Y
+
+# 2024-11-18 09:55:09.637133
++/undo
