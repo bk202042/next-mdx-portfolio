@@ -35,8 +35,8 @@ export async function getProjectMetadata(filepath: string): Promise<ProjectMetad
 }
 
 export async function getProjects(): Promise<ProjectMetadata[]> {
-  const cookieStore = cookies();
-  const locale = (await cookieStore).get('locale')?.value ?? 'ko';
+  const cookieStore = await cookies();
+  const locale = cookieStore.get('locale')?.value ?? 'ko';
   const files = fs.readdirSync(rootDirectory(locale));
 
   const projects = files

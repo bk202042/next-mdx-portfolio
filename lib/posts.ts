@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { headers } from 'next/headers';
+import { cookies } from 'next/headers';
 
 const rootDirectory = (locale: string) =>
   path.join(process.cwd(), 'content', 'posts', locale);
@@ -22,9 +22,8 @@ export type PostMetadata = {
 
 async function getLocale(): Promise<string> {
   try {
-    const headersList = headers();
-    const acceptLanguage = (await headersList).get('accept-language');
-    return acceptLanguage?.split(',')[0].split('-')[0] ?? 'en';
+    const cookieStore = cookies();
+    return (await cookieStore).get('locale')?.value ?? 'en';
   } catch {
     return 'en';
   }
