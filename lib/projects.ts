@@ -3,8 +3,8 @@ import path from 'path';
 import matter from 'gray-matter';
 import { cookies } from 'next/headers';
 
-const rootDirectory = (locale: string) =>
-  path.join(process.cwd(), 'content', 'projects', locale);
+const rootDirectory = (locale: string): string =>
+  path.join(process.cwd(), 'content', 'projects', String(locale));
 
 export type ProjectMetadata = {
   title?: string;
