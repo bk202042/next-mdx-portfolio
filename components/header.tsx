@@ -16,14 +16,29 @@ export default function Header() {
         </div>
 
         <ul className='flex items-center gap-6 text-sm font-light text-muted-foreground sm:gap-10'>
-          <li className='transition-colors hover:text-foreground'>
-            <Link href='/posts' className='font-spoqa'>{t('posts')}</Link>
+          <li>
+            <Link 
+              href='/posts' 
+              className='font-spoqa transition-colors hover:text-foreground active:text-[rgb(1,120,223)]'
+            >
+              {t('posts')}
+            </Link>
           </li>
-          <li className='transition-colors hover:text-foreground'>
-            <Link href='/projects' className='font-spoqa'>{t('projects')}</Link>
+          <li>
+            <Link 
+              href='/projects' 
+              className='font-spoqa transition-colors hover:text-foreground active:text-[rgb(1,120,223)]'
+            >
+              {t('projects')}
+            </Link>
           </li>
-          <li className='transition-colors hover:text-foreground'>
-            <Link href='/contact' className='font-spoqa'>{t('contact')}</Link>
+          <li>
+            <Link 
+              href='/contact' 
+              className='font-spoqa transition-colors hover:text-foreground active:text-[rgb(1,120,223)]'
+            >
+              {t('contact')}
+            </Link>
           </li>
         </ul>
 
