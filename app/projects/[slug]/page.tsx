@@ -8,7 +8,9 @@ import { getProjectBySlug, getProjects } from '@/lib/projects'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const projects = await getProjects()
+  const koProjects = await getProjects('ko')
+  const enProjects = await getProjects('en')
+  const projects = [...koProjects, ...enProjects]
   const slugs = projects.map(project => ({ slug: project.slug }))
 
   return slugs

@@ -14,10 +14,19 @@ export type ProjectMetadata = {
   slug: string;
 };
 
-export async function getProjectMetadata(filepath: string): Promise<ProjectMetadata> {
+export async function getProjectMetadata(filepath: string, forceLocale?: string): Promise<ProjectMetadata> {
   try {
-    const cookieStore = await cookies();
-    const locale = cookieStore.get('locale')?.value || 'en';
+    let locale = 'en';
+    if (!forceLocale) {
+      try {
+        const cookieStore = cookies();
+        locale = cookieStore.get('locale')?.value || 'en';
+      } catch {
+        // Fallback to default locale if cookies are not available
+      }
+    } else {
+      locale = forceLocale;
+    }
     const slug = filepath.replace(/\.mdx$/, '');
     const filePath = path.join(rootDirectory(locale), filepath);
     const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
@@ -34,10 +43,19 @@ export async function getProjectMetadata(filepath: string): Promise<ProjectMetad
   }
 }
 
-export async function getProjectBySlug(slug: string) {
+export async function getProjectBySlug(slug: string, forceLocale?: string) {
   try {
-    const cookieStore = await cookies();
-    const locale = cookieStore.get('locale')?.value ?? 'ko';
+    let locale = 'ko';
+    if (!forceLocale) {
+      try {
+        const cookieStore = cookies();
+        locale = cookieStore.get('locale')?.value ?? 'ko';
+      } catch {
+        // Fallback to default locale if cookies are not available
+      }
+    } else {
+      locale = forceLocale;
+    }
     const filePath = path.join(rootDirectory(locale), `${slug}.mdx`);
     const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
     const { data, content } = matter(fileContent);
@@ -57,9 +75,18 @@ export async function getProjectBySlug(slug: string) {
   }
 }
 
-export async function getProjects(): Promise<ProjectMetadata[]> {
-  const cookieStore = await cookies();
-  const locale = cookieStore.get('locale')?.value ?? 'ko';
+export async function getProjects(forceLocale?: string): Promise<ProjectMetadata[]> {
+  let locale = 'ko';
+  if (!forceLocale) {
+    try {
+      const cookieStore = cookies();
+      locale = cookieStore.get('locale')?.value ?? 'ko';
+    } catch {
+      // Fallback to default locale if cookies are not available
+    }
+  } else {
+    locale = forceLocale;
+  }
   const files = fs.readdirSync(rootDirectory(locale));
 
   const projects = files
