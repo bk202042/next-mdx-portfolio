@@ -15,11 +15,11 @@ export default function Header() {
           </Link>
         </div>
 
-        <ul className='flex items-center gap-6 text-sm font-light text-muted-foreground sm:gap-10'>
+        <ul className='flex items-center gap-6 text-base font-medium sm:gap-10'>
           <li>
             <Link 
               href='/posts' 
-              className='font-spoqa transition-colors hover:text-foreground active:text-[rgb(1,120,223)]'
+              className='font-spoqa transition-colors text-muted-foreground hover:text-[rgb(1,120,223)] active:text-[rgb(1,120,223)]'
             >
               {t('posts')}
             </Link>
@@ -27,7 +27,7 @@ export default function Header() {
           <li>
             <Link 
               href='/projects' 
-              className='font-spoqa transition-colors hover:text-foreground active:text-[rgb(1,120,223)]'
+              className='font-spoqa transition-colors text-muted-foreground hover:text-[rgb(1,120,223)] active:text-[rgb(1,120,223)]'
             >
               {t('projects')}
             </Link>
@@ -35,7 +35,7 @@ export default function Header() {
           <li>
             <Link 
               href='/contact' 
-              className='font-spoqa transition-colors hover:text-foreground active:text-[rgb(1,120,223)]'
+              className='font-spoqa transition-colors text-muted-foreground hover:text-[rgb(1,120,223)] active:text-[rgb(1,120,223)]'
             >
               {t('contact')}
             </Link>
