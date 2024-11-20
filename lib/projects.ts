@@ -87,7 +87,13 @@ export async function getProjects(forceLocale?: string): Promise<ProjectMetadata
   } else {
     locale = forceLocale;
   }
-  const files = fs.readdirSync(rootDirectory(locale));
+  let files: string[] = [];
+  try {
+    files = fs.readdirSync(rootDirectory(locale));
+  } catch (error) {
+    console.error(`Error reading directory for locale ${locale}:`, error);
+    return [];
+  }
 
   const projects = files
     .filter(file => file.endsWith('.mdx'))
