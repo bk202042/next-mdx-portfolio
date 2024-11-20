@@ -11,7 +11,7 @@ export default function Header() {
       <nav className='container flex max-w-3xl items-center justify-between'>
         <div>
           <Link href='/' className='font-serif text-2xl font-bold'>
-            HB
+            BK
           </Link>
         </div>
 
