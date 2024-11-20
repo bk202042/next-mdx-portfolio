@@ -1,10 +1,12 @@
 {
   "HomePage": {
     "title": "Hi, I'm BK",
-    "intro":"Welcome to my digital nook.I'm a software engineer specializing in developing IT service products using cutting-edge AI technologies. I'm passionate about learning new technologies and sharing knowledge with others."
+    "intro": "Welcome to my digital nook. I'm a software engineer specializing in developing IT service products using cutting-edge AI technologies. I'm passionate about learning new technologies and sharing knowledge with others."
   },
   "Intro": {
-    "content": "Welcome to my digital nook. I'm a software engineer specializing in developing IT service products using cutting-edge AI technologies. I'm passionate about learning new technologies and sharing knowledge with others."
+    "greeting": "Hey, I'm BK",
+    "pronunciation": "/bi.kei/",
+    "description": "Welcome to my digital nook. I'm a software developer and content creator from Korea. Here, I share what I've been working on recently and things I've learned along the way."
   },
   "Header": {
     "posts": "Posts",
@@ -22,12 +24,5 @@
     "message": "Message",
     "submit": "Contact Us",
     "privacyPolicy": "privacy policy"
-  }
-}
-{
-  "Intro": {
-    "greeting": "Hey, I'm BK",
-    "pronunciation": "/bi.kei/",
-    "description": "Welcome to my digital nook. I'm a software developer and content creator from Korea. Here, I share what I've been working on recently and things I've learned along the way."
   }
 }
