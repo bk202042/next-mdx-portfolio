@@ -34,6 +34,29 @@ export async function getProjectMetadata(filepath: string): Promise<ProjectMetad
   }
 }
 
+export async function getProjectBySlug(slug: string) {
+  try {
+    const cookieStore = await cookies();
+    const locale = cookieStore.get('locale')?.value ?? 'ko';
+    const filePath = path.join(rootDirectory(locale), `${slug}.mdx`);
+    const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
+    const { data, content } = matter(fileContent);
+    
+    return {
+      metadata: {
+        ...data,
+        slug,
+        title: locale === 'ko' ? `<span class="ko-text">${data.title}</span>` : data.title,
+        description: locale === 'ko' ? `<span class="ko-text">${data.description}</span>` : data.description,
+      },
+      content,
+    };
+  } catch (error) {
+    console.error('Error reading project:', error);
+    return null;
+  }
+}
+
 export async function getProjects(): Promise<ProjectMetadata[]> {
   const cookieStore = await cookies();
   const locale = cookieStore.get('locale')?.value ?? 'ko';
