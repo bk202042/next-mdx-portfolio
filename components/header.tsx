@@ -19,7 +19,7 @@ export default function Header() {
           <li>
             <Link 
               href='/posts' 
-              className='font-spoqa transition-colors text-muted-foreground hover:text-[rgb(1,120,223)] active:text-[rgb(1,120,223)]'
+              className='font-spoqa transition-colors text-[rgb(32,35,42)] hover:text-[rgb(1,120,223)] active:text-[rgb(1,120,223)]'
             >
               {t('posts')}
             </Link>
@@ -27,7 +27,7 @@ export default function Header() {
           <li>
             <Link 
               href='/projects' 
-              className='font-spoqa transition-colors text-muted-foreground hover:text-[rgb(1,120,223)] active:text-[rgb(1,120,223)]'
+              className='font-spoqa transition-colors text-[rgb(32,35,42)] hover:text-[rgb(1,120,223)] active:text-[rgb(1,120,223)]'
             >
               {t('projects')}
             </Link>
@@ -35,7 +35,7 @@ export default function Header() {
           <li>
             <Link 
               href='/contact' 
-              className='font-spoqa transition-colors text-muted-foreground hover:text-[rgb(1,120,223)] active:text-[rgb(1,120,223)]'
+              className='font-spoqa transition-colors text-[rgb(32,35,42)] hover:text-[rgb(1,120,223)] active:text-[rgb(1,120,223)]'
             >
               {t('contact')}
             </Link>
