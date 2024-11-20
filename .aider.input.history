@@ -125,3 +125,87 @@
 
 # 2024-11-18 09:55:09.637133
 +/undo
+
+# 2024-11-20 09:14:56.943285
++Y
+
+# 2024-11-20 09:16:11.356836
++/add app/projects/[slug]/page.tsx
+
+# 2024-11-20 09:16:33.644571
++add/ projects.ts
+
+# 2024-11-20 09:16:36.660656
++Y
+
+# 2024-11-20 09:18:28.642691
++/paste
+
+# 2024-11-20 09:18:40.840456
++fix
+
+# 2024-11-20 09:21:51.867607
++/paste
+
+# 2024-11-20 09:21:54.504394
++fix
+
+# 2024-11-20 09:24:15.360680
++/paste
+
+# 2024-11-20 09:24:20.017711
++fix 
+
+# 2024-11-20 09:28:09.944140
++/add components/header.tsx change the logo HB to BK
+
+# 2024-11-20 09:28:20.461439
++N
+
+# 2024-11-20 09:28:40.361301
++clear
+
+# 2024-11-20 09:28:51.553381
++/clear
+
+# 2024-11-20 09:30:59.867044
++/add components
+
+# 2024-11-20 09:31:26.423922
++exchange the HB logo to BK
+
+# 2024-11-20 09:39:40.097943
++/paste
+
+# 2024-11-20 09:39:55.307696
++/ask why this error occur?
+
+# 2024-11-20 09:45:39.927040
++check again
+
+# 2024-11-20 09:47:22.213601
++N
+
+# 2024-11-20 09:54:54.746073
++/paste
+
+# 2024-11-20 09:56:16.226801
++/architect I paste the referenc image that show the tilte and subtitle. you make intro the same with the reference 
+
+# 2024-11-20 09:56:46.753738
++Y
+
+# 2024-11-20 09:58:21.843186
++/undo
+
+# 2024-11-20 10:00:04.922135
++/architect
+
+# 2024-11-20 10:02:05.857158
++/architect use the title and subtitle in /messages/en.json /messages/ko.json to intro.tsx but mind that korean andenglish both to match the locale-switcher
+
+# 2024-11-20 10:02:38.042040
++Y
+
+# 2024-11-20 10:06:38.499080
++/exit

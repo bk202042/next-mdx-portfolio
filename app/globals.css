@@ -41,6 +41,11 @@
     --sh-comment: #a19595;
   }
 
+  /* Add Korean font styling */
+  :lang(ko) {
+    font-family: var(--font-spoqa);
+  }
+
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
