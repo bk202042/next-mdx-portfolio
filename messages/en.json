@@ -3,6 +3,9 @@
     "title": "Hi, I'm BK",
     "intro":"Welcome to my digital nook.I'm a software engineer specializing in developing IT service products using cutting-edge AI technologies. I'm passionate about learning new technologies and sharing knowledge with others."
   },
+  "Intro": {
+    "content": "Welcome to my digital nook. I'm a software engineer specializing in developing IT service products using cutting-edge AI technologies. I'm passionate about learning new technologies and sharing knowledge with others."
+  },
   "Header": {
     "posts": "Posts",
     "projects": "Projects",
@@ -20,5 +23,4 @@
     "submit": "Contact Us",
     "privacyPolicy": "privacy policy"
   }
-
 }
