@@ -65,7 +65,7 @@ export default function ContactForm() {
         <svg
           x='50%'
           y={-64}
-          className='overflow-visible fill-zinc-50 dark:fill-zinc-900/75'
+          className='overflow-visible fill-transparent dark:fill-transparent'
         >
           <path
             d='M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M299.5 800h201v201h-201Z'
