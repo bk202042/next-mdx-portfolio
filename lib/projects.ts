@@ -75,24 +75,27 @@ export async function getProjectBySlug(slug: string, forceLocale?: string) {
   }
 }
 
-export async function getProjects(forceLocale?: string): Promise<ProjectMetadata[]> {
-  let locale = 'ko';
-  if (!forceLocale) {
-    try {
-      const cookieStore = await cookies();
-      locale = cookieStore.get('locale')?.value ?? 'ko';
-    } catch {
-      // Fallback to default locale if cookies are not available
-    }
-  } else {
-    locale = forceLocale;
+export async function getProjects(limit?: number): Promise<ProjectMetadata[]> {
+  let locale: string;
+  try {
+    const cookieStore = await cookies();
+    locale = cookieStore.get('locale')?.value ?? 'ko';
+  } catch {
+    locale = 'ko'; // Fallback to default locale if cookies are not available
   }
+
   let files: string[] = [];
   try {
     files = fs.readdirSync(rootDirectory(locale));
   } catch (error) {
     console.error(`Error reading directory for locale ${locale}:`, error);
-    return [];
+    // Try fallback to 'en' if 'ko' fails
+    try {
+      locale = 'en';
+      files = fs.readdirSync(rootDirectory(locale));
+    } catch {
+      return [];
+    }
   }
 
   const projects = files
