@@ -20,7 +20,7 @@ export async function getProjectMetadata(filepath: string, forceLocale?: string)
     if (!forceLocale) {
       try {
         const cookieStore = cookies();
-        locale = cookieStore.get('locale')?.value || 'en';
+        locale = (await cookieStore).get('locale')?.value || 'en';
       } catch {
         // Fallback to default locale if cookies are not available
       }
@@ -48,7 +48,7 @@ export async function getProjectBySlug(slug: string, forceLocale?: string) {
     let locale = 'ko';
     if (!forceLocale) {
       try {
-        const cookieStore = cookies();
+        const cookieStore = await cookies();
         locale = cookieStore.get('locale')?.value ?? 'ko';
       } catch {
         // Fallback to default locale if cookies are not available
@@ -59,7 +59,7 @@ export async function getProjectBySlug(slug: string, forceLocale?: string) {
     const filePath = path.join(rootDirectory(locale), `${slug}.mdx`);
     const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
     const { data, content } = matter(fileContent);
-    
+
     return {
       metadata: {
         ...data,
@@ -79,7 +79,7 @@ export async function getProjects(forceLocale?: string): Promise<ProjectMetadata
   let locale = 'ko';
   if (!forceLocale) {
     try {
-      const cookieStore = cookies();
+      const cookieStore = await cookies();
       locale = cookieStore.get('locale')?.value ?? 'ko';
     } catch {
       // Fallback to default locale if cookies are not available
