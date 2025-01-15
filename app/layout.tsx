@@ -8,10 +8,12 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 const notoSansKR = Noto_Sans_KR({
+  subsets: ['latin'], // 사용할 서브셋을 지정하세요
   variable: '--font-sans',
 });
 
 const playfair = Playfair_Display({
+  subsets: ['latin'], // 사용할 서브셋을 지정하세요
   variable: '--font-serif',
 });
 
@@ -37,3 +39,4 @@ export default function RootLayout({
     </html>
   );
 }
+
