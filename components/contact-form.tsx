@@ -1,3 +1,4 @@
+// components/contact-form.tsx
 'use client'
 
 import { z } from 'zod'
@@ -9,7 +10,6 @@ import { ContactFormSchema } from '@/lib/schemas'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { sendEmail } from '@/lib/actions'
 
 type Inputs = z.infer<typeof ContactFormSchema>
 
@@ -29,15 +29,29 @@ export default function ContactForm() {
   })
 
   const processForm: SubmitHandler<Inputs> = async data => {
-    const result = await sendEmail(data)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
 
-    if (result?.error) {
-      toast.error('An error occurred! Please try again.')
-      return
+      if (response.ok) {
+        toast.success('Message sent successfully!')
+        reset()
+      } else {
+        const errorData = await response.json()
+        toast.error(
+          errorData.error?.message ||
+            'An error occurred while sending the message. Please try again.'
+        )
+      }
+    } catch (error) {
+      console.error('Error sending message:', error)
+      toast.error('An unexpected error occurred. Please try again later.')
     }
-
-    toast.success('Message sent successfully!')
-    reset()
   }
 
   return (
@@ -146,7 +160,7 @@ export default function ContactForm() {
           <p className='mt-4 text-xs text-muted-foreground'>
             By submitting this form, I agree to the{' '}
             <Link href='/privacy' className='font-bold'>
-              privacy&nbsp;policy.
+              privacy policy.
             </Link>
           </p>
         </form>
