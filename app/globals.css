@@ -39,6 +39,10 @@
     --sh-jsxliterals: #bf7db6;
     --sh-sign: #8996a3;
     --sh-comment: #a19595;
+
+    /* 폰트 변수 선언 (RootLayout에서 전달받음) */
+    --font-sans: '';
+    --font-serif: '';
   }
 
   .dark {
@@ -80,10 +84,18 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans); /* body 기본 폰트 적용 */
   }
 
-  .title {
-    @apply font-serif text-3xl font-bold underline decoration-border/75 decoration-2 underline-offset-8;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .title { /* .title 스타일도 h 태그와 동일하게 적용 */
+    @apply font-serif;
+    font-family: var(--font-serif); /* h 태그 폰트 적용 */
   }
 
   .prose pre {
