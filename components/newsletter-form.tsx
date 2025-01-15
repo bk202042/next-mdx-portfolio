@@ -57,9 +57,9 @@ export default function NewsletterForm() {
       <Card className='rounded-lg border-0 dark:border'>
         <CardContent className='flex flex-col gap-8 pt-6 md:flex-row md:justify-between md:pt-8'>
           <div>
-            <h2 className='text-2xl font-bold'>Subscribe to my newsletter</h2>
+            <h2 className='text-2xl font-bold'>뉴스레터 구독하기</h2>
             <p className='text-muted-foreground'>
-              Get updates on my work and projects.
+              AI관련 최신 정보를 뉴스레터로 전송해 드립니다.
             </p>
           </div>
 
