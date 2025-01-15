@@ -1,15 +1,16 @@
 // app/api/subscribe/route.ts
 import { NextResponse } from 'next/server'
+import { Resend } from 'resend'
+import { NewsletterFormSchema } from '@/lib/schemas'
 import { z } from 'zod'
 
-const schema = z.object({
-  email: z.string().email()
-})
+const resend = new Resend(process.env.RESEND_API_KEY)
+const adminEmail = 'admin@bkmind.com'; // Define your admin email here
 
 export async function POST(request: Request) {
   try {
-    const json = await request.json()
-    const result = schema.safeParse(json)
+    const body = await request.json()
+    const result = NewsletterFormSchema.safeParse(body)
 
     if (!result.success) {
       return NextResponse.json(
@@ -20,18 +21,36 @@ export async function POST(request: Request) {
 
     const { email } = result.data
 
-    // 이메일 수신 처리
-    const adminEmail = 'admin@bkmind.com'
-    // 여기에 이메일 전송 로직 구현 (예: nodemailer 또는 다른 이메일 서비스)
+    // Send email to admin
+    try {
+      await resend.emails.send({
+        from: 'admin@bkmind.com', // Replace with your verified Resend domain
+        to: [adminEmail],
+        subject: 'New Newsletter Subscriber',
+        text: `A new user has subscribed to the newsletter: ${email}`,
+      });
+      console.log('Admin notification email sent successfully.');
+    } catch (sendError: any) {
+      console.error('Error sending admin notification email:', sendError.message);
+      // You might choose to handle this error differently, e.g., log it
+    }
 
-    return NextResponse.json({
-      message: `구독 요청이 성공적으로 전송되었습니다: ${adminEmail}`
-    })
+    // Optionally, you can still add the contact to your Resend audience
+    // if you need to manage subscribers there for other purposes.
+    // if (process.env.RESEND_AUDIENCE_ID) {
+    //   try {
+    //     await resend.contacts.create({
+    //       email: email,
+    //       audienceId: process.env.RESEND_AUDIENCE_ID as string
+    //     });
+    //     console.log('User added to Resend audience.');
+    //   } catch (audienceError: any) {
+    //     console.error('Error adding user to Resend audience:', audienceError.message);
+    //   }
+    // }
 
+    return NextResponse.json({ message: 'Subscription successful' });
   } catch (error: any) {
-    return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: error.message }, { status: 500 })
   }
 }
