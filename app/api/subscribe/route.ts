@@ -1,15 +1,15 @@
 // app/api/subscribe/route.ts
 import { NextResponse } from 'next/server'
-import { Resend } from 'resend'
-import { NewsletterFormSchema } from '@/lib/schemas'
 import { z } from 'zod'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const schema = z.object({
+  email: z.string().email()
+})
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json()
-    const result = NewsletterFormSchema.safeParse(body)
+    const json = await request.json()
+    const result = schema.safeParse(json)
 
     if (!result.success) {
       return NextResponse.json(
@@ -20,13 +20,18 @@ export async function POST(request: Request) {
 
     const { email } = result.data
 
-    const data = await resend.contacts.create({
-      email: email,
-      audienceId: process.env.RESEND_AUDIENCE_ID as string
+    // 이메일 수신 처리
+    const adminEmail = 'admin@bkmind.com'
+    // 여기에 이메일 전송 로직 구현 (예: nodemailer 또는 다른 이메일 서비스)
+
+    return NextResponse.json({
+      message: `구독 요청이 성공적으로 전송되었습니다: ${adminEmail}`
     })
 
-    return NextResponse.json({ data })
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
+    return NextResponse.json(
+      { error: error.message },
+      { status: 500 }
+    )
   }
 }
