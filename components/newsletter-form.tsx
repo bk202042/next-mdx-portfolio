@@ -1,3 +1,4 @@
+// components/newsletter-form.tsx
 'use client'
 
 import { z } from 'zod'
@@ -8,8 +9,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { NewsletterFormSchema } from '@/lib/schemas'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-
-import { subscribe } from '@/lib/actions'
 import { Card, CardContent } from '@/components/ui/card'
 
 type Inputs = z.infer<typeof NewsletterFormSchema>
@@ -28,15 +27,29 @@ export default function NewsletterForm() {
   })
 
   const processForm: SubmitHandler<Inputs> = async data => {
-    const result = await subscribe(data)
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
 
-    if (result?.error) {
-      toast.error('An error occurred! Please try again.')
-      return
+      if (response.ok) {
+        toast.success('Subscribed successfully!')
+        reset()
+      } else {
+        const errorData = await response.json()
+        toast.error(
+          errorData.error?.message ||
+            'An error occurred while subscribing. Please try again.'
+        )
+      }
+    } catch (error) {
+      console.error('Error subscribing:', error)
+      toast.error('An unexpected error occurred. Please try again later.')
     }
-
-    toast.success('Subscribed successfully!')
-    reset()
   }
 
   return (
@@ -85,7 +98,7 @@ export default function NewsletterForm() {
               <p className='text-xs text-muted-foreground'>
                 We care about your data. Read our{' '}
                 <Link href='/privacy' className='font-bold'>
-                  privacy&nbsp;policy.
+                  privacy policy.
                 </Link>
               </p>
             </div>
