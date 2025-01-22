@@ -104,7 +104,7 @@ export default function ContactForm() {
               <Input
                 id='name'
                 type='text'
-                placeholder='Name'
+                placeholder='이름'
                 autoComplete='given-name'
                 {...register('name')}
               />
@@ -122,7 +122,7 @@ export default function ContactForm() {
                 type='email'
                 id='email'
                 autoComplete='email'
-                placeholder='Email'
+                placeholder='이메일'
                 {...register('email')}
               />
 
@@ -137,7 +137,7 @@ export default function ContactForm() {
             <div className='sm:col-span-2'>
               <Textarea
                 rows={4}
-                placeholder='Message'
+                placeholder='메세지'
                 {...register('message')}
               />
 
@@ -154,7 +154,7 @@ export default function ContactForm() {
               disabled={isSubmitting}
               className='w-full disabled:opacity-50'
             >
-              {isSubmitting ? 'Submitting...' : 'Contact Us'}
+              {isSubmitting ? 'Submitting...' : '제출하기'}
             </Button>
           </div>
           <p className='mt-4 text-xs text-muted-foreground'>
