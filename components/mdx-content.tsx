@@ -14,7 +14,12 @@ function Code({ children, ...props }: any) {
 const components = {
   code: Code,
   Counter,
-  img: (props: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>) => {
+  img: (
+    props: DetailedHTMLProps<
+      ImgHTMLAttributes<HTMLImageElement>,
+      HTMLImageElement
+    >
+  ) => {
     // Remove width and height from props to avoid conflicts with Next.js Image props
     const { width: _w, height: _h, style: _s, ...rest } = props
     return (

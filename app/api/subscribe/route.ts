@@ -5,7 +5,7 @@ import { NewsletterFormSchema } from '@/lib/schemas'
 import { z } from 'zod'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const adminEmail = 'admin@bkmind.com'; // Define your admin email here
+const adminEmail = 'admin@bkmind.com' // Define your admin email here
 
 export async function POST(request: Request) {
   try {
@@ -27,11 +27,14 @@ export async function POST(request: Request) {
         from: 'admin@bkmind.com', // Replace with your verified Resend domain
         to: [adminEmail],
         subject: 'New Newsletter Subscriber',
-        text: `A new user has subscribed to the newsletter: ${email}`,
-      });
-      console.log('Admin notification email sent successfully.');
+        text: `A new user has subscribed to the newsletter: ${email}`
+      })
+      console.log('Admin notification email sent successfully.')
     } catch (sendError: any) {
-      console.error('Error sending admin notification email:', sendError.message);
+      console.error(
+        'Error sending admin notification email:',
+        sendError.message
+      )
       // You might choose to handle this error differently, e.g., log it
     }
 
@@ -49,7 +52,7 @@ export async function POST(request: Request) {
     //   }
     // }
 
-    return NextResponse.json({ message: 'Subscription successful' });
+    return NextResponse.json({ message: 'Subscription successful' })
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 })
   }

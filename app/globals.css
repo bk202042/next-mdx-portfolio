@@ -93,7 +93,8 @@
   h4,
   h5,
   h6,
-  .title { /* .title 스타일도 h 태그와 동일하게 적용 */
+  .title {
+    /* .title 스타일도 h 태그와 동일하게 적용 */
     @apply font-serif;
     font-family: var(--font-serif); /* h 태그 폰트 적용 */
   }
