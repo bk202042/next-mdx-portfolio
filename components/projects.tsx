@@ -13,7 +13,7 @@ export default function Projects({
     <ul className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
       {projects.map(project => (
         <li key={project.slug}>
-          <Link 
+          <Link
             href={`/projects/${project.slug}`}
             className='group block overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-md dark:border-gray-800 dark:bg-gray-900'
           >
@@ -39,7 +39,9 @@ export default function Projects({
                 <p className='text-xs text-muted-foreground'>
                   {formatDate(project.publishedAt ?? '')}
                 </p>
-                <span className='text-xs font-medium text-blue-500'>View project →</span>
+                <span className='text-xs font-medium text-blue-500'>
+                  View project →
+                </span>
               </div>
             </div>
           </Link>

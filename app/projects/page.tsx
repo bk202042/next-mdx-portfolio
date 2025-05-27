@@ -5,12 +5,11 @@ export default async function ProjectsPage() {
   const projects = await getProjects()
 
   return (
-    <section className='pb-24 pt-40'>
-      <div className='container max-w-3xl'>
-        <h1 className='title mb-12'>Projects</h1>
-
+    <div className='py-16 pt-40 sm:py-24 sm:pt-48'>
+      <div className='container max-w-5xl px-4 sm:px-6 lg:px-8'>
+        <h1 className='title mb-12 text-4xl'>Projects</h1>
         <Projects projects={projects} />
       </div>
-    </section>
+    </div>
   )
 }

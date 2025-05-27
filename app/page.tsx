@@ -12,7 +12,7 @@ export default function Home() {
         <div className='mt-16 space-y-16 sm:mt-20 sm:space-y-20'>
           <RecentPosts />
           <RecentProjects />
-          
+
           <div className='mt-16 sm:mt-24'>
             <NewsletterForm />
           </div>

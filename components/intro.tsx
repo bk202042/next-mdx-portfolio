@@ -6,7 +6,10 @@ export default function Intro() {
     <section className='flex flex-col-reverse gap-y-8 pb-16 md:flex-row md:items-start md:gap-x-16 md:pb-24'>
       <div className='flex-1'>
         <h1 className='text-4xl font-bold leading-tight tracking-tight md:text-5xl'>
-          Hey, I&apos;m <span className='font-serif'>BK</span> <span className='text-lg font-normal text-blue-500 md:text-xl'>/Bi-kei/</span>
+          Hey, I&apos;m <span className='font-serif'>BK</span>{' '}
+          <span className='text-lg font-normal text-blue-500 md:text-xl'>
+            /Bi-kei/
+          </span>
         </h1>
         <p className='mt-6 text-xl text-muted-foreground'>
           환영합니다! 👋 저는 AI 소프트웨어 개발자이자 콘텐츠 제작자입니다. 이

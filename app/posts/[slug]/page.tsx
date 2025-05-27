@@ -27,8 +27,8 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const { title, image, author, publishedAt } = metadata
 
   return (
-    <section className='pb-24 pt-32'>
-      <div className='container max-w-3xl'>
+    <div className='py-16 pt-32 sm:py-24 sm:pt-48'>
+      <div className='container max-w-5xl px-4 sm:px-6 lg:px-8'>
         <Link
           href='/posts'
           className='mb-8 inline-flex items-center gap-2 text-sm font-light text-muted-foreground transition-colors hover:text-foreground'
@@ -49,7 +49,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
         )}
 
         <header>
-          <h1 className='title'>{title}</h1>
+          <h1 className='title text-4xl'>{title}</h1>
           <p className='mt-3 text-xs text-muted-foreground'>
             {author} / {formatDate(publishedAt ?? '')}
           </p>
@@ -63,6 +63,6 @@ export default async function Post({ params }: { params: { slug: string } }) {
           <NewsletterForm />
         </footer>
       </div>
-    </section>
+    </div>
   )
 }
