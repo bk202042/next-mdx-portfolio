@@ -78,7 +78,7 @@ export default function Footer() {
                 className='text-muted-foreground hover:text-foreground'
               >
                 <span className='sr-only'>{item.name}</span>
-                <item.icon aria-hidden='true' className='h-5 w-5' />
+                <item.icon aria-hidden='true' className='h-6 w-6' />
               </a>
             ))}
           </div>
