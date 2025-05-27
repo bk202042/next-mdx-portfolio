@@ -5,15 +5,19 @@ import RecentProjects from '@/components/recent-projects'
 
 export default function Home() {
   return (
-    <section className='pb-24 pt-40'>
-      <div className='container max-w-3xl'>
+    <div className='py-16 pt-40 sm:py-24 sm:pt-48'>
+      <div className='container max-w-5xl px-4 sm:px-6 lg:px-8'>
         <Intro />
 
-        <RecentPosts />
-        <RecentProjects />
-
-        <NewsletterForm />
+        <div className='mt-16 space-y-16 sm:mt-20 sm:space-y-20'>
+          <RecentPosts />
+          <RecentProjects />
+          
+          <div className='mt-16 sm:mt-24'>
+            <NewsletterForm />
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   )
 }

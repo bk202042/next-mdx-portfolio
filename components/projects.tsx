@@ -10,33 +10,37 @@ export default function Projects({
   projects: ProjectMetadata[]
 }) {
   return (
-    <ul className='grid grid-cols-1 gap-8 sm:grid-cols-2'>
+    <ul className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
       {projects.map(project => (
-        <li key={project.slug} className='group relative'>
-          <Link href={`/projects/${project.slug}`}>
+        <li key={project.slug}>
+          <Link 
+            href={`/projects/${project.slug}`}
+            className='group block overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-md dark:border-gray-800 dark:bg-gray-900'
+          >
             {project.image && (
-              <div className='h-72 w-full overflow-hidden bg-muted sm:h-60'>
+              <div className='relative h-48 w-full overflow-hidden bg-gray-100 dark:bg-gray-800'>
                 <Image
                   src={project.image}
                   alt={project.title || ''}
                   fill
-                  className='rounded-lg object-cover object-center transition-transform duration-500 group-hover:scale-105'
+                  className='object-cover object-center transition-transform duration-300 group-hover:scale-105'
                 />
               </div>
             )}
 
-            <div className='absolute inset-[1px] rounded-lg bg-background/70 opacity-0 transition-opacity duration-500 group-hover:opacity-100' />
-
-            <div className='absolute inset-x-0 bottom-0 translate-y-2 px-6 py-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100'>
-              <h2 className='title line-clamp-1 text-xl no-underline'>
+            <div className='p-4'>
+              <h3 className='line-clamp-1 text-lg font-medium group-hover:text-blue-500'>
                 {project.title}
-              </h2>
-              <p className='line-clamp-1 text-sm text-muted-foreground'>
+              </h3>
+              <p className='mt-1 line-clamp-2 text-sm text-muted-foreground'>
                 {project.summary}
               </p>
-              <p className='text-xs font-light text-muted-foreground'>
-                {formatDate(project.publishedAt ?? '')}
-              </p>
+              <div className='mt-2 flex items-center justify-between'>
+                <p className='text-xs text-muted-foreground'>
+                  {formatDate(project.publishedAt ?? '')}
+                </p>
+                <span className='text-xs font-medium text-blue-500'>View project →</span>
+              </div>
             </div>
           </Link>
         </li>

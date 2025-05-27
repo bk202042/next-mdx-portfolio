@@ -1,6 +1,24 @@
-# 기술 스택 연구
+# Next.js MDX Portfolio Project Agent Guide
 
+## Commands
+- Development: `pnpm dev` (start development server)
+- Build: `pnpm build` (production build)
+- Lint: `pnpm lint` (run ESLint)
+- Start: `pnpm start` (start production server)
+
+## Code Style Guidelines
+- **TypeScript**: Use strict TypeScript with proper types. Use zod for schema validation.
+- **Formatting**: Single quotes, no semi-colons, 2-space indentation, 80-char width limit, arrow function parentheses avoided.
+- **Naming**: PascalCase for components, camelCase for functions/variables. Export named functions.
+- **Imports**: Group imports (React, then external libraries, then internal imports with @/ path alias).
+- **CSS**: Use Tailwind CSS with className. Use class-variance-authority (cva) for component variants.
+- **Components**: 'use client' directive for client components. Use React server components where possible.
+- **Error Handling**: Try/catch blocks with structured error returns: `{ error }` or `{ success: true }`.
+- **Form Validation**: Zod schemas defined in lib/schemas.ts with react-hook-form and @hookform/resolvers/zod.
+
+# 기술 스택 연구
 이 문서는 `package.json` 파일에 명시된 주요 기술 스택에 대한 연구 결과를 담고 있습니다. Context7 MCP 서버에서 얻은 최신 문서를 기반으로 작성되었으며, 각 기술의 핵심 개념, 코드 스니펫, 그리고 서버/클라이언트 측 사용에 대한 고려 사항을 포함합니다.
+
 
 ## Next.js
 
@@ -691,5 +709,13 @@ tailwindcss-animate는 Tailwind CSS 프로젝트에 애니메이션 유틸리티
 - **`prettier-plugin-tailwindcss`**: 이 Prettier 플러그인은 Tailwind CSS 클래스를 권장 순서로 자동으로 정렬하여 코드 일관성을 유지하는 데 도움이 됩니다.
 - **`sugar-high`**: Context7에서 이 라이브러리에 대한 특정 문서를 찾을 수 없었습니다. `package.json`에 포함되어 있지만, 주요 애플리케이션 로직의 핵심 부분은 아닐 수 있습니다. 추가 정보가 필요하면 사용자에게 문의해야 할 수 있습니다.
 - **`tailwind-merge`**: 이 라이브러리에 대한 직접적인 Context7 문서는 찾지 못했지만, Class Variance Authority (CVA) 문서에서 `tailwind-merge`와 함께 사용하여 Tailwind 클래스 충돌을 해결하는 예시를 확인했습니다. 이는 CVA와 함께 사용하여 최종 클래스 문자열을 정리하는 일반적인 패턴입니다.
+
+## 개발 서버 실행 (pnpm)
+
+프로젝트 개발 서버를 실행하려면 `pnpm dev` 명령어를 사용합니다. 이 명령어는 Next.js 개발 서버를 시작하여 코드 변경 사항을 실시간으로 반영합니다.
+
+```bash
+pnpm dev
+```
 
 이 연구 결과는 `next-mdx-portfolio` 프로젝트의 기술 스택에 대한 개요를 제공합니다. 각 기술에 대한 자세한 내용은 해당 공식 문서를 참조하십시오.

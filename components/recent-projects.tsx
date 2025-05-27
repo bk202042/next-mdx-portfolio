@@ -6,16 +6,16 @@ export default async function RecentProjects() {
   const projects = await getProjects(2)
 
   return (
-    <section className='pb-24'>
-      <div>
-        <h2 className='title mb-12'>최근 프로젝트</h2>
+    <section className='pb-16 md:pb-24'>
+      <div className='w-full'>
+        <h2 className='mb-8 text-2xl font-bold tracking-tight md:text-3xl'>Recent Projects</h2>
         <Projects projects={projects} />
 
         <Link
           href='/projects'
-          className='mt-8 inline-flex items-center gap-2 text-muted-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-foreground'
+          className='mt-8 inline-flex items-center gap-2 text-sm font-medium text-blue-500 hover:underline'
         >
-          <span>All projects</span>
+          <span>All projects</span> →
         </Link>
       </div>
     </section>
