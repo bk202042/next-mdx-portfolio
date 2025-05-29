@@ -18,8 +18,8 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'AI 시스템 디자인 BKMIND',
-  description: 'AI 시스템 디자인 및 개발 포트폴리오',
+  title: 'AI 소프트웨어 개발 및 B2B 컨설팅',
+  description: 'AI 소프트웨어 개발 및 B2B 컨설팅 포트폴리오',
   icons: {
     icon: '/logo3.png',
     apple: '/logo3.png'

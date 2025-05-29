@@ -12,10 +12,11 @@ export default function Intro() {
           </span>
         </h1>
         <p className='mt-4 text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg md:text-xl'>
-          환영합니다! 👋 저는 AI 소프트웨어 개발자이자 콘텐츠 제작자입니다. 이
-          디지털 공간에 저의 최신 프로젝트를 소개하고 인사이트를 공유하며 그
-          과정에서 배운 자료들을 모아 놓았습니다. 제 블로그 글이나 AI 관련
-          프로젝트를 통해서 의미 있는 무언가를 찾으시길 바랍니다.
+          환영합니다! 저는 AI 소프트웨어 개발자이자 B2B 컨설턴트입니다. 이
+          공간에서는 AI 소프트웨어 개발과 비즈니스 자동화, 그리고 B2B 컨설팅
+          프로젝트를 소개합니다. 최신 프로젝트, 인사이트, 그리고 실질적인
+          비즈니스 혁신 사례를 공유합니다. AI로 비즈니스 혁신을 꿈꾸는 모든
+          분들께 실질적인 변화를 만들어드리겠습니다.
         </p>
       </div>
       <div className='relative mb-6 flex-shrink-0 md:mb-0'>
