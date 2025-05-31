@@ -6,77 +6,284 @@ author: 'BK'
 publishedAt: '2025-05-30'
 ---
 
-## 소개
+<div className="mt-8 mb-10 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-md border border-blue-100">
+  <div className="flex flex-col md:flex-row items-center gap-6">
+    <div className="flex-1">
+      <h1 className="text-3xl font-bold text-blue-800 mb-4">유용한 프롬프트 자료 모음</h1>
+      <p className="text-lg text-blue-700">프롬프트 엔지니어링은 AI 모델과의 효과적인 소통을 위한 핵심 기술로 최근 빠르게 발전하고 있습니다. 우수한 프롬프트를 작성하는 능력은 AI 도구를 활용하는 모든 분야에서 중요한 경쟁력이 되었습니다.</p>
+    </div>
+    <div className="flex-shrink-0">
+      <a href="#conclusion" className="group inline-flex items-center px-6 py-3 text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg font-bold text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+        <span className="flex items-center">
+          자료 활용하기
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
 
-프롬프트 엔지니어링은 AI 모델과의 효과적인 소통을 위한 핵심 기술로 최근 빠르게 발전하고 있습니다. 우수한 프롬프트를 작성하는 능력은 AI 도구를 활용하는 모든 분야에서 중요한 경쟁력이 되었습니다. 이 글에서는 다양한 프롬프트 기법과 유용한 자료들을 카테고리별로 정리했습니다.
+<div className="my-8 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-sm border border-blue-100">
+  <div className="flex items-start">
+    <div>
+      <h3 className="text-xl font-bold text-blue-800 mb-3">소개</h3>
+      <div className="text-blue-700">
+        <p>이 글에서는 다양한 프롬프트 기법과 유용한 자료들을 카테고리별로 정리했습니다. 기본 원칙부터 실용적인 템플릿까지, AI와의 효과적인 소통을 위한 다양한 도구를 소개합니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## 프롬프트 엔지니어링 기본 원칙
 
-### 1. [명확성 원칙](https://www.promptingguide.ai/introduction/basics)
+<div className="my-8 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-sm border border-blue-100">
+  <h3 className="text-xl font-bold text-blue-800 mb-3">핵심 원칙 정리</h3>
+  <p className="text-blue-700 mb-2">프롬프트 엔지니어링의 핵심 원칙을 이해하고 적용하면 AI와의 소통 효과를 크게 높일 수 있습니다. 아래 원칙들은 어떤 AI 모델에도 적용 가능한 보편적인 기법입니다.</p>
+</div>
 
-프롬프트는 명확하고 구체적이어야 합니다. 모호한 지시는 예측할 수 없는 결과를 가져옵니다. 원하는 것을 구체적으로 설명하고, 출력 형식까지 지정하면 더 좋은 결과를 얻을 수 있습니다. 예를 들어 "좋은 코드 작성해줘"보다는 "Python으로 이진 검색 알고리즘을 구현하고, 각 단계에 주석을 추가해줘"라고 요청하는 것이 효과적입니다.
+<div className="my-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div className="p-6 rounded-lg bg-white shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300">
+    <a href="https://www.promptingguide.ai/introduction/basics" className="no-underline" target="_blank" rel="noopener noreferrer">
+      <h4 className="text-lg font-bold text-blue-800 mb-3 flex items-center">
+        1. 명확성 원칙
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </h4>
+    </a>
+    <p className="text-blue-700 mb-4">프롬프트는 명확하고 구체적이어야 합니다. 모호한 지시는 예측할 수 없는 결과를 가져옵니다.</p>
+    <div className="bg-blue-50 p-3 rounded-md">
+      <p className="text-sm text-blue-600"><span className="font-medium">예시:</span> "좋은 코드 작성해줘"보다는 "Python으로 이진 검색 알고리즘을 구현하고, 각 단계에 주석을 추가해줘"라고 요청하는 것이 효과적입니다.</p>
+    </div>
+  </div>
 
-### 2. [컨텍스트 제공](https://learnprompting.org/docs/basics/few_shot)
+  <div className="p-6 rounded-lg bg-white shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300">
+    <a href="https://learnprompting.org/docs/basics/few_shot" className="no-underline" target="_blank" rel="noopener noreferrer">
+      <h4 className="text-lg font-bold text-blue-800 mb-3 flex items-center">
+        2. 컨텍스트 제공
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </h4>
+    </a>
+    <p className="text-blue-700 mb-4">충분한 배경 정보와 예시를 제공하면 AI가 의도를 더 정확히 파악할 수 있습니다.</p>
+    <div className="bg-blue-50 p-3 rounded-md">
+      <p className="text-sm text-blue-600"><span className="font-medium">기법:</span> Few-shot 학습 방식을 활용하여 원하는 응답의 예시를 프롬프트에 포함시키는 것이 좋습니다. 특히 특정 형식이나 스타일을 요구할 때 효과적입니다.</p>
+    </div>
+  </div>
 
-충분한 배경 정보와 예시를 제공하면 AI가 의도를 더 정확히 파악할 수 있습니다. Few-shot 학습 방식을 활용하여 원하는 응답의 예시를 프롬프트에 포함시키는 것이 좋습니다. 이는 특히 특정 형식이나 스타일을 요구할 때 효과적입니다.
-
-### 3. [역할 부여](https://www.promptingguide.ai/techniques/role)
-
-AI에게 특정 역할을 부여하면 해당 분야의 전문성을 가진 응답을 얻을 수 있습니다. "너는 경험 많은 데이터 사이언티스트야"와 같은 역할 지정은 관련 분야의 전문적인 응답을 유도합니다.
+  <div className="p-6 rounded-lg bg-white shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300">
+    <a href="https://www.promptingguide.ai/techniques/role" className="no-underline" target="_blank" rel="noopener noreferrer">
+      <h4 className="text-lg font-bold text-blue-800 mb-3 flex items-center">
+        3. 역할 부여
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </h4>
+    </a>
+    <p className="text-blue-700 mb-4">AI에게 특정 역할을 부여하면 해당 분야의 전문성을 가진 응답을 얻을 수 있습니다.</p>
+    <div className="bg-blue-50 p-3 rounded-md">
+      <p className="text-sm text-blue-600"><span className="font-medium">예시:</span> "너는 경험 많은 데이터 사이언티스트야"와 같은 역할 지정은 관련 분야의 전문적인 응답을 유도합니다.</p>
+    </div>
+  </div>
+</div>
 
 ## 유용한 프롬프트 자료 모음
 
-### 1. [구글 워크스페이스 프롬프트 가이드](https://drive.google.com/file/d/1r5yAJSUzgvthHpsKS3X5XNW3cDGYztNr/view?usp=sharing)
+<div className="my-8 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-sm border border-blue-100">
+  <h3 className="text-xl font-bold text-blue-800 mb-3">최신 자료 모음</h3>
+  <p className="text-blue-700 mb-2">다음은 효과적인 프롬프트 작성을 위한 유용한 자료들입니다. 각 자료는 특정 모델이나 활용 사례에 초점을 맞추고 있으며, 실용적인 팁과 예시를 포함하고 있습니다.</p>
+</div>
 
-구글 문서, 스프레드시트, 프레젠테이션 등 구글 워크스페이스 제품에서 활용할 수 있는 프롬프트 가이드입니다. 업무 효율성을 높이는 다양한 프롬프트 예시와 활용법을 PDF 형식으로 제공하며, 실무에서 바로 적용 가능한 팁들이 포함되어 있습니다.
+<div className="my-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div className="p-6 rounded-lg bg-white shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+    <a href="https://drive.google.com/file/d/1r5yAJSUzgvthHpsKS3X5XNW3cDGYztNr/view?usp=sharing" className="no-underline" target="_blank" rel="noopener noreferrer">
+      <h4 className="text-lg font-bold text-blue-800 mb-3 flex items-center">
+        구글 워크스페이스 프롬프트 가이드
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </h4>
+    </a>
+    <div className="bg-gradient-to-r from-blue-50 to-blue-100 h-32 rounded-md mb-4 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+        <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+      </svg>
+    </div>
+    <p className="text-blue-700">구글 문서, 스프레드시트, 프레젠테이션 등에서 활용할 수 있는 프롬프트 가이드입니다. 업무 효율성을 높이는 다양한 프롬프트 예시와 활용법을 PDF 형식으로 제공합니다.</p>
+  </div>
 
-### 2. [Claude 4 프론트엔드 코드 생성 가이드](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices#enhance-visual-and-frontend-code-generation)
-
-Claude 4 모델을 활용하여 시각적 요소와 프론트엔드 코드를 효과적으로 생성하는 방법을 안내합니다. UI 컴포넌트, 웹사이트 레이아웃, 인터랙티브 요소 등을 생성할 때 유용한 프롬프트 작성 기법을 제공합니다.
-
-### 3. [GPT-4.1 프롬프팅 가이드](https://cookbook.openai.com/examples/gpt4-1_prompting_guide)
-
-OpenAI의 GPT-4.1 모델의 향상된 기능을 최대한 활용하기 위한 공식 프롬프팅 가이드입니다. 에이전틱 워크플로우, 긴 컨텍스트 처리, 사고 연쇄(Chain of Thought), 명령 수행 등에 관한 최적화된 프롬프트 작성법과 예시를 제공합니다.
+  <div className="p-6 rounded-lg bg-white shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices#enhance-visual-and-frontend-code-generation" className="no-underline" target="_blank" rel="noopener noreferrer">
+      <h4 className="text-lg font-bold text-blue-800 mb-3 flex items-center">
+        Claude 4 프론트엔드 코드 가이드
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </h4>
+    </a>
+    <div className="bg-gradient-to-r from-indigo-50 to-purple-100 h-32 rounded-md mb-4 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-indigo-400" viewBox="0 0 20 20" fill="currentColor">
+        <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+      </svg>
+    </div>
+    <p className="text-blue-700">Claude 4 모델을 활용하여 시각적 요소와 프론트엔드 코드를 효과적으로 생성하는 방법을 안내합니다. UI 컴포넌트, 웹사이트 레이아웃, 인터랙티브 요소 등을 생성할 때 유용합니다.</p>
+  </div>
+  
+  <div className="p-6 rounded-lg bg-white shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+    <a href="https://cookbook.openai.com/examples/gpt4-1_prompting_guide" className="no-underline" target="_blank" rel="noopener noreferrer">
+      <h4 className="text-lg font-bold text-blue-800 mb-3 flex items-center">
+        GPT-4.1 프롬프팅 가이드
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </h4>
+    </a>
+    <div className="bg-gradient-to-r from-green-50 to-blue-100 h-32 rounded-md mb-4 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z" />
+      </svg>
+    </div>
+    <p className="text-blue-700">OpenAI의 GPT-4.1 모델의 향상된 기능을 최대한 활용하기 위한 공식 프롬프팅 가이드입니다. 에이전틱 워크플로우, 긴 컨텍스트 처리, 사고 연쇄 등에 관한 가이드라인을 제공합니다.</p>
+  </div>
+</div>
 
 
 ## 실용적인 프롬프트 템플릿
 
-### 1. [비즈니스 인사이트 요약](https://github.com/f/awesome-chatgpt-prompts#act-as-a-business-strategist)
+<div className="my-8 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-sm border border-blue-100">
+  <h3 className="text-xl font-bold text-blue-800 mb-3">바로 사용 가능한 템플릿</h3>
+  <p className="text-blue-700 mb-2">다음은 다양한 작업에 즉시 적용할 수 있는 프롬프트 템플릿입니다. 프롬프트 템플릿은 목적에 맞게 수정하여 사용하세요.</p>
+</div>
 
-```
-비즈니스 전략가로서, 글로벌 테크 기업을 위한 포괄적인 비즈니스 인사이트 요약을 작성하기 위한 핵심 단계를 설명해주세요. 다음 내용을 포함해주세요:
+<div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div className="p-6 rounded-lg bg-white shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300">
+    <a href="https://github.com/f/awesome-chatgpt-prompts#act-as-a-business-strategist" className="no-underline" target="_blank" rel="noopener noreferrer">
+      <h4 className="text-lg font-bold text-blue-800 mb-3 flex items-center">
+        비즈니스 인사이트 요약
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </h4>
+    </a>
+    <div className="bg-blue-50 p-4 rounded-md mb-4 text-sm text-blue-700 font-mono overflow-auto max-h-60">
+      ```
+      비즈니스 전략가로서, 글로벌 테크 기업을 위한 포괄적인 비즈니스 인사이트 요약을 작성하기 위한 핵심 단계를 설명해주세요. 다음 내용을 포함해주세요:
 
-1. 지난 해의 시장 점유율 트렌드를 분석하는 방법
-2. 최고 성과를 보이는 상위 3개 제품 라인을 파악하는 프로세스
-3. 4분기 지역별 성과 차이를 평가하는 방법론
+      1. 지난 해의 시장 점유율 트렌드를 분석하는 방법
+      2. 최고 성과를 보이는 상위 3개 제품 라인을 파악하는 프로세스
+      3. 4분기 지역별 성과 차이를 평가하는 방법론
 
-각 단계별로 접근 방식을 간략히 설명하고, 사용할 핵심 지표 하나를 언급해주세요. 응답은 300단어 이내로 제한하고, 명확한 글머리 기호 형식으로 구성해주세요.
-```
+      각 단계별로 접근 방식을 간략히 설명하고, 사용할 핵심 지표 하나를 언급해주세요. 응답은 300단어 이내로 제한하고, 명확한 글머리 기호 형식으로 구성해주세요.
+      ```
+    </div>
+    <div className="text-blue-700">
+      <p>비즈니스 전략 분석을 위한 구체적인 접근 방식을 요청하는 프롬프트입니다. 특정 지표, 응답 형식, 및 글자 수 제한을 지정하여 더 정확한 결과를 얻을 수 있습니다.</p>
+    </div>
+  </div>
 
-### 2. [기술 문서 요약](https://github.com/f/awesome-chatgpt-prompts#act-as-a-technical-writer)
+  <div className="p-6 rounded-lg bg-white shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300">
+    <a href="https://github.com/f/awesome-chatgpt-prompts#act-as-a-technical-writer" className="no-underline" target="_blank" rel="noopener noreferrer">
+      <h4 className="text-lg font-bold text-blue-800 mb-3 flex items-center">
+        기술 문서 요약
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </h4>
+    </a>
+    <div className="bg-blue-50 p-4 rounded-md mb-4 text-sm text-blue-700 font-mono overflow-auto max-h-60">
+      ```
+      다음 기술 문서를 요약해주세요. 핵심 개념과 주요 내용만 간결하게 포함하되, 중요한 세부사항은 빠트리지 마세요. 전문 용어는 그대로 유지하고, 5개의 글머리 기호로 구성된 요약을 제공해주세요.
 
-```
-다음 기술 문서를 요약해주세요. 핵심 개념과 주요 내용만 간결하게 포함하되, 중요한 세부사항은 빠트리지 마세요. 전문 용어는 그대로 유지하고, 5개의 글머리 기호로 구성된 요약을 제공해주세요.
+      문서: [여기에 문서 내용 삽입]
+      ```
+    </div>
+    <div className="text-blue-700">
+      <p>복잡한 기술 문서의 핵심 내용을 화료하게 추출하는 프롬프트입니다. 전문 용어를 유지하면서도 이해하기 쉬운 요약을 생성합니다.</p>
+    </div>
+  </div>
+</div>
 
-문서: [여기에 문서 내용 삽입]
-```
+<div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div className="p-6 rounded-lg bg-white shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300">
+    <a href="https://github.com/f/awesome-chatgpt-prompts#act-as-a-senior-developer" className="no-underline" target="_blank" rel="noopener noreferrer">
+      <h4 className="text-lg font-bold text-blue-800 mb-3 flex items-center">
+        코드 리뷰
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </h4>
+    </a>
+    <div className="bg-blue-50 p-4 rounded-md mb-4 text-sm text-blue-700 font-mono overflow-auto max-h-60">
+      ```
+      시니어 개발자 역할로 다음 코드를 리뷰해주세요. 코드 품질, 가독성, 성능, 보안 측면에서 분석하고, 구체적인 개선 제안을 코드 예시와 함께 제공해주세요.
 
-### 2. [코드 리뷰](https://github.com/f/awesome-chatgpt-prompts#act-as-a-senior-developer)
+      코드: [여기에 코드 삽입]
+      ```
+    </div>
+    <div className="text-blue-700">
+      <p>시니어 개발자 관점에서 코드를 분석하고 개선하는 프롬프트입니다. 품질, 가독성, 성능, 보안과 같은 다양한 측면에서의 제안을 받을 수 있습니다.</p>
+    </div>
+  </div>
 
-```
-시니어 개발자 역할로 다음 코드를 리뷰해주세요. 코드 품질, 가독성, 성능, 보안 측면에서 분석하고, 구체적인 개선 제안을 코드 예시와 함께 제공해주세요.
+  <div className="p-6 rounded-lg bg-white shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300">
+    <a href="https://github.com/f/awesome-chatgpt-prompts#act-as-a-business-consultant" className="no-underline" target="_blank" rel="noopener noreferrer">
+      <h4 className="text-lg font-bold text-blue-800 mb-3 flex items-center">
+        비즈니스 전략 분석
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </h4>
+    </a>
+    <div className="bg-blue-50 p-4 rounded-md mb-4 text-sm text-blue-700 font-mono overflow-auto max-h-60">
+      ```
+      비즈니스 컨설턴트로서 다음 사업 아이디어를 SWOT 분석해주세요. 각 항목별로 3가지 이상의 구체적인 포인트를 제공하고, 전략적 제언도 추가해주세요.
 
-코드: [여기에 코드 삽입]
-```
-
-### 3. [비즈니스 전략 분석](https://github.com/f/awesome-chatgpt-prompts#act-as-a-business-consultant)
-
-```
-비즈니스 컨설턴트로서 다음 사업 아이디어를 SWOT 분석해주세요. 각 항목별로 3가지 이상의 구체적인 포인트를 제공하고, 전략적 제언도 추가해주세요.
-
-사업 아이디어: [여기에 아이디어 설명 삽입]
-```
+      사업 아이디어: [여기에 아이디어 설명 삽입]
+      ```
+    </div>
+    <div className="text-blue-700">
+      <p>사업 아이디어의 강점, 약점, 기회, 위협을 분석하는 SWOT 분석 프롬프트입니다. 구체적인 포인트와 전략적 제언을 포함하여 실용적인 비즈니스 통창력을 얻을 수 있습니다.</p>
+    </div>
+  </div>
+</div>
 
 ## 결론
 
-프롬프트 엔지니어링은 AI 기술을 효과적으로 활용하기 위한 필수 역량이 되었습니다. 이 글에서 소개한 원칙과 기법, 자료들을 활용하여 더 정확하고 유용한 AI 응답을 얻으시길 바랍니다. 프롬프트 작성은 예술이자 과학이며, 지속적인 실험과 학습을 통해 계속 발전시켜 나갈 수 있습니다.
+<div className="my-8 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-8 shadow-lg">
+  <h3 className="text-2xl font-bold mb-4">프롬프트 엔지니어링의 중요성</h3>
+  <p className="mb-4 text-lg">프롬프트 엔지니어링은 AI와의 의사소통을 효과적으로 수행하기 위한 필수 스킬입니다. 이 블로그에서 소개한 원칙과 템플릿을 활용하여 보다 정확하고 효율적인 프롬프트를 작성할 수 있습니다.</p>
+  <p className="mb-6 text-lg">좋은 프롬프트는 좋은 결과를 만듭니다. AI와의 커뮤니케이션 방식을 지속적으로 개선하면서, 기술의 발전에 따라 프롬프트 엔지니어링 스킬도 함께 발전시켜 나가시기 바랍니다.</p>
+
+  <div className="flex flex-wrap gap-4 justify-center mt-6">
+    <a href="/posts" className="inline-block bg-white text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-lg font-bold transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+      더 많은 글 찾아보기
+      <span className="ml-2">→</span>
+    </a>
+    <a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank" rel="noopener noreferrer" className="inline-block bg-transparent text-white border-2 border-white hover:bg-white hover:text-blue-700 px-6 py-3 rounded-lg font-bold transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+      더 많은 프롬프트 예제
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    </a>
+  </div>
+</div>
+
+<div className="my-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div className="p-6 rounded-lg bg-blue-50 shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+    <h4 className="text-lg font-bold text-blue-800 mb-3">실험하고 학습하기</h4>
+    <p className="text-blue-700">다양한 프롬프트 기법을 실험하면서 어떤 방식이 가장 효과적인지 탐구해보세요. 지속적인 실험은 최고의 학습 방법입니다.</p>
+  </div>
+  
+  <div className="p-6 rounded-lg bg-blue-50 shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+    <h4 className="text-lg font-bold text-blue-800 mb-3">성과 추적하기</h4>
+    <p className="text-blue-700">어떤 프롬프트가 가장 좋은 결과를 냈는지 기록하고 추적하세요. 데이터 기반 접근방식이 지속적인 개선을 이끌어냅니다.</p>
+  </div>
+  
+  <div className="p-6 rounded-lg bg-blue-50 shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+    <h4 className="text-lg font-bold text-blue-800 mb-3">지식 공유하기</h4>
+    <p className="text-blue-700">발견한 효과적인 프롬프트 기법을 다른 사람들과 공유하세요. 커뮤니티와 함께 발전하는 것이 프롬프트 엔지니어링의 미래입니다.</p>
+  </div>
+</div>
