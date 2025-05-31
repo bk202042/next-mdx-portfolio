@@ -8,23 +8,39 @@
 
 # NextJs MDX Portfolio: Create an Elegant Developer Showcase
 
-<div className="mb-12 mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-md border border-blue-200 transform transition-all duration-500 hover:shadow-lg hover:border-blue-300">
-  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-    <div className="md:flex-1">
-      <h3 className="text-xl md:text-2xl font-bold text-blue-800 mb-3">See It Live</h3>
-      <p className="text-blue-700 mb-4 text-base md:text-lg">Explore the live demo of this portfolio template to experience the MDX-powered content with custom React components.</p>
+<div className='mb-12 mt-8 transform rounded-xl border border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-md transition-all duration-500 hover:border-blue-300 hover:shadow-lg'>
+  <div className='flex flex-col gap-6 md:flex-row md:items-center md:justify-between'>
+    <div className='md:flex-1'>
+      <h3 className='mb-3 text-xl font-bold text-blue-800 md:text-2xl'>
+        See It Live
+      </h3>
+      <p className='mb-4 text-base text-blue-700 md:text-lg'>
+        Explore the live demo of this portfolio template to experience the
+        MDX-powered content with custom React components.
+      </p>
     </div>
-    <div className="md:flex-shrink-0">
+    <div className='md:flex-shrink-0'>
       <a
-        href="https://next-mdx-portfolio-demo.vercel.app"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group block w-full md:w-auto px-6 py-3 text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg font-bold text-lg text-center shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        href='https://next-mdx-portfolio-demo.vercel.app'
+        target='_blank'
+        rel='noopener noreferrer'
+        className='group block w-full transform rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 text-center text-lg font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 md:w-auto'
       >
-        <span className="flex items-center justify-center">
+        <span className='flex items-center justify-center'>
           View Demo
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            className='ml-2 h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2}
+              d='M14 5l7 7m0 0l-7 7m7-7H3'
+            />
           </svg>
         </span>
       </a>
@@ -37,12 +53,17 @@ package to render MDX content in NextJs pages.
 
 ## Features
 
-<div className="my-8 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-sm border border-blue-100">
-  <div className="flex items-start">
+<div className='my-8 rounded-lg border border-blue-100 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-sm'>
+  <div className='flex items-start'>
     <div>
-      <h3 className="text-lg font-medium text-blue-800">Portfolio Highlights</h3>
-      <div className="mt-2 text-blue-700">
-        <p className="mb-3">This portfolio template offers everything you need to showcase your projects and content with style:</p>
+      <h3 className='text-lg font-medium text-blue-800'>
+        Portfolio Highlights
+      </h3>
+      <div className='mt-2 text-blue-700'>
+        <p className='mb-3'>
+          This portfolio template offers everything you need to showcase your
+          projects and content with style:
+        </p>
       </div>
     </div>
   </div>
@@ -55,7 +76,8 @@ package to render MDX content in NextJs pages.
 
 ## Technologies
 
-This portfolio is built with modern technologies for optimal performance and developer experience:
+This portfolio is built with modern technologies for optimal performance and
+developer experience:
 
 - **NextJs**: A React framework for building static and dynamic websites.
 - **MDX**: A file format that allows you to write JSX in your Markdown files.
@@ -64,57 +86,88 @@ This portfolio is built with modern technologies for optimal performance and dev
 
 ## Getting Started
 
-To get started with this project, you can clone the repository and install the dependencies:
+To get started with this project, you can clone the repository and install the
+dependencies:
 
-<pre className="my-6 rounded-lg bg-gray-900 p-4 overflow-x-auto">
-  <code className="text-sm text-gray-100">git clone
-cd next-mdx-portfolio
-npm install</code>
+<pre className='my-6 overflow-x-auto rounded-lg bg-gray-900 p-4'>
+  <code className='text-sm text-gray-100'>
+    git clone cd next-mdx-portfolio npm install
+  </code>
 </pre>
 
 Once the dependencies are installed, you can run the development server:
 
-<pre className="my-6 rounded-lg bg-gray-900 p-4 overflow-x-auto">
-  <code className="text-sm text-gray-100">npm run dev</code>
+<pre className='my-6 overflow-x-auto rounded-lg bg-gray-900 p-4'>
+  <code className='text-sm text-gray-100'>npm run dev</code>
 </pre>
 
 The development server will start at `http://localhost:3000`.
 
 ## Deployment
 
-To deploy this project, you can use Vercel. You can link your GitHub repository to Vercel and deploy the project with a single click.
+To deploy this project, you can use Vercel. You can link your GitHub repository
+to Vercel and deploy the project with a single click.
 
 <a
-  href="https://vercel.com/new/git/external"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="my-8 block w-full max-w-md mx-auto px-8 py-6 text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg text-xl font-bold text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+  href='https://vercel.com/new/git/external'
+  target='_blank'
+  rel='noopener noreferrer'
+  className='mx-auto my-8 block w-full max-w-md transform rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6 text-center text-xl font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
 >
-  <span className="flex items-center justify-center">
+  <span className='flex items-center justify-center'>
     Deploy to Vercel
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      className='ml-2 h-6 w-6 transform transition-transform duration-300 group-hover:translate-x-1'
+      fill='none'
+      viewBox='0 0 24 24'
+      stroke='currentColor'
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth={2}
+        d='M14 5l7 7m0 0l-7 7m7-7H3'
+      />
     </svg>
   </span>
 </a>
 
 ## Conclusion
 
-<div className="mb-16 mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-md border border-blue-200 transform transition-all duration-500 hover:shadow-lg hover:border-blue-300">
-  <div className="flex flex-col items-center text-center">
-    <h3 className="text-2xl font-bold text-blue-800 mb-4">Ready to Create Your Own Portfolio?</h3>
-    <p className="text-blue-700 mb-6 text-lg max-w-xl mx-auto">This portfolio website is a great example of how you can use NextJs and MDX to build a modern website with dynamic content. By combining the power of NextJs and MDX, you can create interactive and engaging websites that are easy to maintain and update.</p>
-    
+<div className='mb-16 mt-8 transform rounded-xl border border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-md transition-all duration-500 hover:border-blue-300 hover:shadow-lg'>
+  <div className='flex flex-col items-center text-center'>
+    <h3 className='mb-4 text-2xl font-bold text-blue-800'>
+      Ready to Create Your Own Portfolio?
+    </h3>
+    <p className='mx-auto mb-6 max-w-xl text-lg text-blue-700'>
+      This portfolio website is a great example of how you can use NextJs and
+      MDX to build a modern website with dynamic content. By combining the power
+      of NextJs and MDX, you can create interactive and engaging websites that
+      are easy to maintain and update.
+    </p>
+
     <a
-      href="https://github.com/your-username/next-mdx-portfolio"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block px-8 py-4 w-full max-w-md mx-auto text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg font-bold text-xl text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      href='https://github.com/your-username/next-mdx-portfolio'
+      target='_blank'
+      rel='noopener noreferrer'
+      className='group mx-auto block w-full max-w-md transform rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 text-center text-xl font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
     >
-      <span className="flex items-center justify-center">
+      <span className='flex items-center justify-center'>
         Get Started with the Template
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          className='ml-2 h-6 w-6 transform transition-transform duration-300 group-hover:translate-x-1'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+        >
+          <path
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth={2}
+            d='M14 5l7 7m0 0l-7 7m7-7H3'
+          />
         </svg>
       </span>
     </a>

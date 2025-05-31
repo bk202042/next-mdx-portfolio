@@ -1,6 +1,9 @@
 # Next.js MDX Portfolio - Architecture Documentation
 
-This document provides a comprehensive analysis of the Next.js MDX Portfolio codebase from both software architecture and developer perspectives. It includes detailed breakdowns of the project structure, data flow, component architecture, and technical implementation details.
+This document provides a comprehensive analysis of the Next.js MDX Portfolio
+codebase from both software architecture and developer perspectives. It includes
+detailed breakdowns of the project structure, data flow, component architecture,
+and technical implementation details.
 
 ## Table of Contents
 
@@ -25,7 +28,9 @@ This document provides a comprehensive analysis of the Next.js MDX Portfolio cod
 
 ## Project Overview
 
-This portfolio website is built with Next.js and uses MDX for content management. It showcases blog posts and projects in a clean, responsive design with modern UI/UX features including:
+This portfolio website is built with Next.js and uses MDX for content
+management. It showcases blog posts and projects in a clean, responsive design
+with modern UI/UX features including:
 
 - Light/dark mode theming
 - MDX content rendering with syntax highlighting
@@ -44,7 +49,8 @@ The site is structured around several key sections:
 
 ### System Architecture
 
-The project follows a modern React application architecture built on Next.js 14 App Router. Here's a high-level overview of the system architecture:
+The project follows a modern React application architecture built on Next.js 14
+App Router. Here's a high-level overview of the system architecture:
 
 ```mermaid
 graph TD
@@ -53,27 +59,27 @@ graph TD
         Components[React Components]
         Hooks[Custom Hooks]
     end
-    
+
     subgraph NextJS
         AppRouter[App Router]
         ServerComponents[Server Components]
         ClientComponents[Client Components]
     end
-    
+
     subgraph Backend
         ServerActions[Server Actions]
         APIRoutes[API Routes]
     end
-    
+
     subgraph External
         EmailAPI[Resend Email API]
     end
-    
+
     subgraph Content
         MDXFiles[MDX Files]
         ImageAssets[Image Assets]
     end
-    
+
     UI --> Components
     Components --> Hooks
     Components --> ServerComponents
@@ -117,18 +123,18 @@ graph TD
     Root --> Content["content/"]
     Root --> Lib["lib/"]
     Root --> Public["public/"]
-    
+
     App --> Pages["page.tsx files"]
     App --> ApiRoutes["api/"]
     ApiRoutes --> ContactAPI["contact/route.ts"]
     ApiRoutes --> SubscribeAPI["subscribe/route.ts"]
-    
+
     Components --> UIComponents["ui/"]
     Components --> SharedComponents["*.tsx files"]
-    
+
     Content --> Posts["posts/*.mdx"]
     Content --> Projects["projects/*.mdx"]
-    
+
     Lib --> Utils["utils.ts"]
     Lib --> ContentHandlers["posts.ts, projects.ts"]
     Lib --> Schemas["schemas.ts"]
@@ -139,14 +145,20 @@ graph TD
 
 ### Page Components
 
-The application uses Next.js App Router for file-based routing with the following key pages:
+The application uses Next.js App Router for file-based routing with the
+following key pages:
 
-1. **Homepage (`app/page.tsx`)**: Entry point featuring intro, recent posts, and projects
-2. **Posts Page (`app/posts/page.tsx`)**: Lists all blog posts with search functionality
-3. **Post Detail (`app/posts/[slug]/page.tsx`)**: Displays individual post content
+1. **Homepage (`app/page.tsx`)**: Entry point featuring intro, recent posts, and
+   projects
+2. **Posts Page (`app/posts/page.tsx`)**: Lists all blog posts with search
+   functionality
+3. **Post Detail (`app/posts/[slug]/page.tsx`)**: Displays individual post
+   content
 4. **Projects Page (`app/projects/page.tsx`)**: Lists all projects
-5. **Project Detail (`app/projects/[slug]/page.tsx`)**: Displays individual project content
-6. **Contact Page (`app/contact/page.tsx`)**: Contact form for user communication
+5. **Project Detail (`app/projects/[slug]/page.tsx`)**: Displays individual
+   project content
+6. **Contact Page (`app/contact/page.tsx`)**: Contact form for user
+   communication
 
 ### UI Components
 
@@ -157,16 +169,16 @@ graph TD
     Layout[Layout Components] --> Header
     Layout --> Footer
     Layout --> Providers[ThemeProvider + Toaster]
-    
+
     InteractiveComponents[Interactive Components] --> ContactForm
     InteractiveComponents --> NewsletterForm
     InteractiveComponents --> ThemeToggle
-    
+
     ContentComponents[Content Components] --> MDXContent
     ContentComponents --> Posts
     ContentComponents --> Projects
     ContentComponents --> Intro
-    
+
     UIKit[UI Kit Components] --> Button
     UIKit --> Input
     UIKit --> Textarea
@@ -183,11 +195,11 @@ sequenceDiagram
     participant ContentComponent
     participant APIRoute
     participant ExternalAPI
-    
+
     User->>Header: Navigate (Click link)
     Header->>Page: Route change
     Page->>ContentComponent: Load content
-    
+
     User->>ContentComponent: Submit form
     ContentComponent->>APIRoute: POST data
     APIRoute->>ExternalAPI: Send email/Subscribe
@@ -200,7 +212,8 @@ sequenceDiagram
 
 The application uses a consistent layout structure across pages:
 
-1. **RootLayout (`app/layout.tsx`)**: Top-level layout with font loading, metadata, and theme providers
+1. **RootLayout (`app/layout.tsx`)**: Top-level layout with font loading,
+   metadata, and theme providers
 2. **Header (`components/header.tsx`)**: Navigation with responsive mobile menu
 3. **Footer (`components/footer.tsx`)**: Social links and copyright information
 
@@ -253,10 +266,10 @@ The application integrates with external services:
 flowchart LR
     ContactForm[Contact Form] --> ContactRoute["/api/contact" Route]
     NewsletterForm[Newsletter Form] --> SubscribeRoute["/api/subscribe" Route]
-    
+
     ContactRoute --> ResendAPI[Resend Email API]
     SubscribeRoute --> ResendAPI
-    
+
     ResendAPI --> EmailDelivery[Email Delivery]
     ResendAPI --> ContactList[Contact Management]
 ```
@@ -269,13 +282,13 @@ The project uses a modern styling approach:
 flowchart TB
     TailwindCSS[Tailwind CSS] --> Utility[Utility Classes]
     TailwindCSS --> Components[Component Classes]
-    
+
     TailwindPlugins[Plugins] --> Typography[Typography]
     TailwindPlugins --> Animate[Animations]
-    
+
     UtilityFunctions[Utility Functions] --> CN[CN Function]
     CN --> ClassMerging[Class Name Merging]
-    
+
     ThemeSystem[Theme System] --> LightTheme[Light Theme]
     ThemeSystem --> DarkTheme[Dark Theme]
     ThemeSystem --> SystemPreference[System Preference]
@@ -311,7 +324,8 @@ The development workflow is structured around typical Next.js conventions:
 
 The application is designed with several extension points:
 
-1. **Adding Content**: Simply add new MDX files to content/posts or content/projects
+1. **Adding Content**: Simply add new MDX files to content/posts or
+   content/projects
 2. **Custom MDX Components**: Extend MDX functionality in mdx-content.tsx
 3. **UI Components**: Add or modify components in the ui/ directory
 4. **API Routes**: Add new API endpoints in the app/api/ directory
@@ -329,11 +343,11 @@ sequenceDiagram
     participant Form
     participant APIRoute
     participant ResendAPI
-    
+
     User->>Form: Fill form and submit
     Form->>APIRoute: POST form data
     APIRoute->>APIRoute: Validate with Zod
-    
+
     alt Valid Form Data
         APIRoute->>ResendAPI: Send email
         ResendAPI-->>APIRoute: Success/Error response
@@ -353,14 +367,14 @@ The theme implementation uses next-themes:
 flowchart TB
     ThemeProvider[ThemeProvider] --> ThemeContext[Theme Context]
     ThemeContext --> useTheme[useTheme Hook]
-    
+
     useTheme --> ThemeToggle[Theme Toggle]
     useTheme --> Components[Themed Components]
-    
+
     InitialTheme[Initial Theme] --> SystemPreference[System Preference]
     InitialTheme --> StoredPreference[Stored Preference]
     InitialTheme --> Default[Default Theme]
-    
+
     ThemeChange[Theme Change] --> UpdateDOM[Update DOM]
     ThemeChange --> StorePreference[Store in localStorage]
 ```
@@ -379,6 +393,14 @@ flowchart LR
 
 ## Conclusion
 
-The Next.js MDX Portfolio is a well-structured, modern web application that effectively combines the power of Next.js framework with MDX content management. The architecture follows clean programming principles with modular components, clear separation of concerns, and efficient data flow patterns. The styling system provides a consistent design language throughout the application while ensuring responsiveness across different device sizes.
+The Next.js MDX Portfolio is a well-structured, modern web application that
+effectively combines the power of Next.js framework with MDX content management.
+The architecture follows clean programming principles with modular components,
+clear separation of concerns, and efficient data flow patterns. The styling
+system provides a consistent design language throughout the application while
+ensuring responsiveness across different device sizes.
 
-The project demonstrates effective use of modern web development practices including server components, static site generation, theme customization, and responsive design. It provides a solid foundation that can be easily extended for additional features or content types.
+The project demonstrates effective use of modern web development practices
+including server components, static site generation, theme customization, and
+responsive design. It provides a solid foundation that can be easily extended
+for additional features or content types.
