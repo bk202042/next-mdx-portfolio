@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
 
 interface ProjectContainerProps {
   title: string;
@@ -17,7 +16,21 @@ export default function ProjectContainer({ title, author, date, children }: Proj
         href="/projects"
         className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-blue-600"
       >
-        <ArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" />
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+        >
+          <path d="m12 19-7-7 7-7"/>
+          <path d="M19 12H5"/>
+        </svg>
         <span className="border-b border-transparent pb-0.5 transition-colors group-hover:border-blue-600">
           Back to projects
         </span>
