@@ -1,175 +1,131 @@
 ---
-  title: NextJs MDX Portfolio
-  summary: A portfolio website built with NextJs and MDX.
-  image: /images/projects/next-mdx-portfolio.jpg
-  author: 'Hamed Bahram'
-  publishedAt: '2024-08-08'
+title: 'Next.js MDX 포트폴리오 템플릿: 나만의 블로그로 쉽게 전환하기'
+summary: '기술 지식 없이도 멋진 개인 블로그와 포트폴리오를 만드는 방법'
+image: '/images/projects/next-mdx-portfolio.jpg'
+author: 'BK'
+publishedAt: '2025-06-01'
+tags: ['Next.js', 'MDX', '블로그', '포트폴리오', '사용자 가이드']
 ---
 
-# NextJs MDX Portfolio: Create an Elegant Developer Showcase
+# 당신만의 블로그를 10분 안에 만드는 방법: Next.js MDX 포트폴리오 템플릿
 
-<div className='mb-12 mt-8 transform rounded-xl border border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-md transition-all duration-500 hover:border-blue-300 hover:shadow-lg'>
-  <div className='flex flex-col gap-6 md:flex-row md:items-center md:justify-between'>
-    <div className='md:flex-1'>
-      <h3 className='mb-3 text-xl font-bold text-blue-800 md:text-2xl'>
-        See It Live
-      </h3>
-      <p className='mb-4 text-base text-blue-700 md:text-lg'>
-        Explore the live demo of this portfolio template to experience the
-        MDX-powered content with custom React components.
-      </p>
-    </div>
-    <div className='md:flex-shrink-0'>
-      <a
-        href='https://next-mdx-portfolio-demo.vercel.app'
-        target='_blank'
-        rel='noopener noreferrer'
-        className='group block w-full transform rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 text-center text-lg font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 md:w-auto'
-      >
-        <span className='flex items-center justify-center'>
-          View Demo
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='ml-2 h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M14 5l7 7m0 0l-7 7m7-7H3'
-            />
-          </svg>
-        </span>
-      </a>
-    </div>
-  </div>
-</div>
+코딩을 처음 접하셨나요? 걱정하지 마세요! 이 가이드는 기술적 배경이 없어도 멋진 개인 블로그나 포트폴리오를 쉽게 만들 수 있도록 도와드립니다. 마크다운으로 글을 작성하고 싶은 블로거, 자신의 작품을 온라인에 전시하고 싶은 디자이너, 또는 전문적인 포트폴리오가 필요한 개발자 모두에게 적합합니다.
 
-This is a portfolio website built with NextJs and MDX. It uses the `@next/mdx`
-package to render MDX content in NextJs pages.
+[데모 사이트 둘러보기](https://next-mdx-portfolio-demo.vercel.app)
 
-## Features
+## 누구나 쉽게 시작할 수 있는 블로그 솔루션
 
-<div className='my-8 rounded-lg border border-blue-100 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-sm'>
-  <div className='flex items-start'>
-    <div>
-      <h3 className='text-lg font-medium text-blue-800'>
-        Portfolio Highlights
-      </h3>
-      <div className='mt-2 text-blue-700'>
-        <p className='mb-3'>
-          This portfolio template offers everything you need to showcase your
-          projects and content with style:
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+많은 블로그 플랫폼들이 있지만, 대부분 맞춤 설정에 제한이 있거나 기술적 지식이 필요합니다. 이 템플릿은 그 간극을 메워, 누구나 전문적인 웹사이트를 만들 수 있도록 설계되었습니다.
 
-- **MDX Support**: Write content in MDX format.
-- **Syntax Highlighting**: Code blocks are syntax highlighted.
-- **Custom Components**: Use custom components in your MDX files.
-- **Responsive Design**: The website is responsive and works on all devices.
+### 이런 분들에게 완벽합니다
 
-## Technologies
+- **글쓰기에 집중하고 싶은 블로거**: 복잡한 코드 대신 마크다운으로 간단하게 콘텐츠 작성
+- **포트폴리오가 필요한 크리에이터**: 작품을 세련되게 전시할 수 있는 커스터마이징 가능한 갤러리
+- **코딩 입문자**: 웹 개발을 배우면서 실제 프로젝트를 가질 수 있는 기회
+- **개인 브랜드를 구축하는 전문가**: 자신의 전문성을 보여줄 맞춤형 온라인 공간
 
-This portfolio is built with modern technologies for optimal performance and
-developer experience:
+## 5단계로 나만의 사이트 만들기
 
-- **NextJs**: A React framework for building static and dynamic websites.
-- **MDX**: A file format that allows you to write JSX in your Markdown files.
-- **Tailwind CSS**: A utility-first CSS framework for building custom designs.
-- **Vercel**: A cloud platform for static sites and serverless functions.
+### 1단계: 템플릿 복제하기 (기술 지식 필요 없음)
 
-## Getting Started
+가장 쉬운 방법은 'Fork'를 통한 시작입니다:
 
-To get started with this project, you can clone the repository and install the
-dependencies:
+1. GitHub에 계정이 없다면 무료로 가입하세요
+2. 템플릿 저장소로 이동해 오른쪽 상단의 'Fork' 버튼을 클릭하세요
+3. 저장소 이름을 지정하고 (예: `my-blog`) 'Create fork'를 클릭하세요
 
-<pre className='my-6 overflow-x-auto rounded-lg bg-gray-900 p-4'>
-  <code className='text-sm text-gray-100'>
-    git clone cd next-mdx-portfolio npm install
-  </code>
-</pre>
+이제 이 템플릿의 복사본이 여러분의 계정에 생성되었습니다!
 
-Once the dependencies are installed, you can run the development server:
+### 2단계: 맞춤 설정하기 (직관적인 파일 편집)
 
-<pre className='my-6 overflow-x-auto rounded-lg bg-gray-900 p-4'>
-  <code className='text-sm text-gray-100'>npm run dev</code>
-</pre>
+사이트를 나만의 것으로 만들기 위해 몇 가지 파일을 편집해야 합니다. GitHub 웹사이트에서 직접 할 수 있습니다:
 
-The development server will start at `http://localhost:3000`.
+1. **기본 정보 변경하기**: `app/layout.tsx` 파일에서 사이트 제목과 설명을 바꾸세요
+2. **로고와 색상 변경하기**: `public` 폴더에 자신의 로고를 업로드하고 `styles/globals.css`에서 색상을 조정하세요
+3. **메뉴 항목 수정하기**: `components/header.tsx`에서 네비게이션 링크를 편집하세요
 
-## Deployment
+### 3단계: 콘텐츠 추가하기 (마크다운으로 쉽게)
 
-To deploy this project, you can use Vercel. You can link your GitHub repository
-to Vercel and deploy the project with a single click.
+블로그 포스트와 프로젝트는 단순한 텍스트 파일로 관리됩니다:
 
-<a
-  href='https://vercel.com/new/git/external'
-  target='_blank'
-  rel='noopener noreferrer'
-  className='mx-auto my-8 block w-full max-w-md transform rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6 text-center text-xl font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
->
-  <span className='flex items-center justify-center'>
-    Deploy to Vercel
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      className='ml-2 h-6 w-6 transform transition-transform duration-300 group-hover:translate-x-1'
-      fill='none'
-      viewBox='0 0 24 24'
-      stroke='currentColor'
-    >
-      <path
-        strokeLinecap='round'
-        strokeLinejoin='round'
-        strokeWidth={2}
-        d='M14 5l7 7m0 0l-7 7m7-7H3'
-      />
-    </svg>
-  </span>
-</a>
+1. `content/posts` 또는 `content/projects` 폴더로 이동하세요
+2. '새 파일 추가' 버튼을 클릭하고 `my-first-post.mdx`와 같은 이름을 지정하세요
+3. 다음 형식으로 파일을 시작하세요:
 
-## Conclusion
+```markdown
+---
+title: '첫 번째 블로그 포스트'
+summary: '새 블로그에 오신 것을 환영합니다'
+image: '/images/posts/welcome.jpg' 
+author: '여러분의 이름'
+publishedAt: '2025-06-03'
+tags: ['시작하기', '블로그']
+---
 
-<div className='mb-16 mt-8 transform rounded-xl border border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-md transition-all duration-500 hover:border-blue-300 hover:shadow-lg'>
-  <div className='flex flex-col items-center text-center'>
-    <h3 className='mb-4 text-2xl font-bold text-blue-800'>
-      Ready to Create Your Own Portfolio?
-    </h3>
-    <p className='mx-auto mb-6 max-w-xl text-lg text-blue-700'>
-      This portfolio website is a great example of how you can use NextJs and
-      MDX to build a modern website with dynamic content. By combining the power
-      of NextJs and MDX, you can create interactive and engaging websites that
-      are easy to maintain and update.
-    </p>
+# 첫 번째 포스트에 오신 것을 환영합니다
 
-    <a
-      href='https://github.com/your-username/next-mdx-portfolio'
-      target='_blank'
-      rel='noopener noreferrer'
-      className='group mx-auto block w-full max-w-md transform rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 text-center text-xl font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
-    >
-      <span className='flex items-center justify-center'>
-        Get Started with the Template
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          className='ml-2 h-6 w-6 transform transition-transform duration-300 group-hover:translate-x-1'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
-        >
-          <path
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth={2}
-            d='M14 5l7 7m0 0l-7 7m7-7H3'
-          />
-        </svg>
-      </span>
-    </a>
-  </div>
-</div>
+이곳에 마크다운으로 콘텐츠를 작성하세요. **굵게**, *기울임체*, [링크](https://example.com) 등을 사용할 수 있습니다.
+```
+
+4. 이미지는 `public/images` 폴더에 업로드하여 사용할 수 있습니다
+
+### 4단계: 배포하기 (클릭 한 번으로)
+
+여러분의 사이트를 온라인에 공개하는 것은 놀랍도록 쉽습니다:
+
+1. [Vercel](https://vercel.com)에 가입하세요 (GitHub 계정으로 로그인 가능)
+2. '새 프로젝트 가져오기'를 클릭하고 여러분의 GitHub 저장소를 선택하세요
+3. 기본 설정을 유지하고 '배포'를 클릭하세요
+
+몇 분 내에 여러분만의 URL에서 사이트가 라이브로 공개됩니다! 예: `https://my-blog.vercel.app`
+
+### 5단계: 나만의 도메인 연결하기 (선택 사항)
+
+더 전문적인 느낌을 위해 맞춤 도메인을 연결하세요:
+
+1. 도메인 등록 업체에서 도메인을 구매하세요 (Namecheap, GoDaddy 등)
+2. Vercel 대시보드에서 '도메인 설정'을 찾아 지침을 따르세요
+
+## 블로그 운영하기: 꿀팁과 요령
+
+### 마크다운으로 멋진 콘텐츠 작성하기
+
+코드 없이도 아름다운 페이지를 만들 수 있습니다:
+
+- 제목은 `#`, `##`, `###` 등으로 시작하세요
+- 이미지는 `![대체 텍스트](/images/my-image.jpg)` 형식으로 추가하세요
+- 코드 블록은 \`\`\` 로 감싸세요
+
+### 쉬운 맞춤 설정 옵션
+
+템플릿을 나만의 스타일로 쉽게 변경할 수 있습니다:
+
+- **테마 색상**: `styles/globals.css`에서 원하는 색상으로 변경하세요
+- **글꼴**: `app/layout.tsx`에서 Google Fonts를 통해 다양한 글꼴을 사용하세요
+- **레이아웃**: 필요에 따라 `components` 폴더의 파일을 수정하세요
+
+## 자주 묻는 질문
+
+### 코딩 경험이 전혀 없어도 사용할 수 있나요?
+
+네! 기본적인 마크다운 문법만 알면 멋진 콘텐츠를 작성할 수 있습니다. 더 깊게 맞춤 설정하고 싶다면, 간단한 HTML과 CSS를 배우는 것도 도움이 됩니다.
+
+### 이 템플릿으로 어떤 종류의 사이트를 만들 수 있나요?
+
+개인 블로그, 포트폴리오, 소규모 비즈니스 사이트, 취미 프로젝트 쇼케이스 등 다양한 용도로 활용할 수 있습니다. 레이아웃과 스타일을 조정하여 원하는 느낌을 만들어보세요.
+
+### 사이트를 확장하려면 어떻게 해야 하나요?
+
+시작은 간단하게, 성장은 필요에 따라! 처음에는 기본 기능으로 시작하고, 더 많은 기능이 필요하면 React와 Next.js에 대해 조금씩 배워가며 확장할 수 있습니다.
+
+### 내 블로그를 어떻게 홍보할 수 있을까요?
+
+- 검색 엔진 최적화(SEO)를 위해 각 포스트에 태그와 요약을 추가하세요
+- 소셜 미디어에 콘텐츠를 공유하고 링크를 홍보하세요
+- 관련 커뮤니티와 포럼에 참여하여 자연스럽게 블로그를 언급하세요
+
+## 나만의 온라인 공간을 만들 준비가 되셨나요?
+
+복잡한 코드나 디자인 지식 없이도 멋진 블로그나 포트폴리오를 만들 수 있습니다. 지금 바로 시작하여 여러분의 아이디어, 작품, 또는 전문성을 세상과 공유해보세요!
+
+[템플릿으로 시작하기](https://github.com/your-username/next-mdx-portfolio)
