@@ -1,0 +1,25 @@
+{
+  "memories": [
+    {
+      "id": "mem_1757754704646_021ev55q2",
+      "content": "Next.js MDX Portfolio Architecture:\n- Next.js 14 with App Router\n- MDX content management via gray-matter + next-mdx-remote\n- File-based routing: posts/ and projects/ directories\n- Content located in content/posts/*.mdx and content/projects/*.mdx\n- Email integration via Resend API for contact forms and newsletter\n- Styling: Tailwind CSS with CSS variables and dark mode support\n- Form validation: react-hook-form + zod schemas\n- Key libraries: next-themes, react-hook-form, zod, gray-matter, next-mdx-remote, resend, sugar-high\n- TypeScript throughout with strict typing",
+      "type": "concept",
+      "tags": [
+        "concept",
+        "typescript",
+        "react",
+        "api",
+        "next-mdx-portfolio",
+        "architecture",
+        "claude-md"
+      ],
+      "timestamp": "2025-09-13T09:11:44.645Z",
+      "context": "Creating CLAUDE.md for next-mdx-portfolio codebase",
+      "accessCount": 0,
+      "lastAccessed": "2025-09-13T09:11:44.645Z",
+      "lastVerified": "2025-09-13T09:11:44.645Z",
+      "status": "fresh"
+    }
+  ],
+  "lastUpdated": "2025-09-13T09:11:44.645Z"
+}

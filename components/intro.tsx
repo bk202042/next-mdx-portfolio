@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import authorImage from '@/public/images/authors/bk.png'
+import authorImage from '@/public/images/authors/Daebak_Resized.jpeg'
 import { Card, CardContent } from '@/components/ui/card'
 import { useEffect, useState } from 'react'
 
