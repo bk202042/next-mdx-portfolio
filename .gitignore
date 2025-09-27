@@ -37,5 +37,8 @@ next-env.d.ts
 
 .roo/
 
-.github/
+/.github/
+
+# Do not commit local MCP config (may contain secrets)
+/mcp.json
 
